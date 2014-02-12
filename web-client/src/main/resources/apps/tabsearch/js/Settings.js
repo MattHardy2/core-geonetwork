@@ -84,7 +84,7 @@ GeoNetwork.Settings.mdStore = GeoNetwork.data.MetadataResultsFastStore;
 
 GeoNetwork.MapModule = true;
 GeoNetwork.ProjectionList = [['EPSG:4326', 'WGS84 (lat/lon)']];
-GeoNetwork.WMSList = [['Geoserver', 'http://localhost/geoserver/wms?']];
+GeoNetwork.WMSList = [['Geoserver', 'http://vap-xgeodev.jrc.it/geoserver/wms?']];
 
 GeoNetwork.defaultViewMode = 'view-simple';
 
