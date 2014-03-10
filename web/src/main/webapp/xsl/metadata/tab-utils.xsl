@@ -24,51 +24,29 @@
     <xsl:param name="tabLink"/>
     <div id="tabs">
 
-      <!-- Tab visibility is managed in config-gui.xml -->
-      <!-- simple tab -->
-      <xsl:if test="/root/gui/env/metadata/enableSimpleView = 'true'">
         <xsl:call-template name="mainTab">
-          <xsl:with-param name="title" select="/root/gui/strings/simpleTab"/>
-          <xsl:with-param name="default">simple</xsl:with-param>
+          <xsl:with-param name="title">Ultra Light</xsl:with-param>
+          <xsl:with-param name="default">ultralight</xsl:with-param>
           <xsl:with-param name="menu">
-            <item label="simpleTab">simple</item>
+            <item label="xmlTab">ultralight</item>
           </xsl:with-param>
         </xsl:call-template>
-      </xsl:if>
 
-      <!--  complete tab(s) -->
-      <xsl:choose>
-        <!-- Show complete tab with one main tab only for subtemplates to allow full editing -->
-        <xsl:when test="geonet:info[isTemplate='s']">
-          <xsl:call-template name="mainTab">
-            <xsl:with-param name="title" select="/root/gui/strings/completeTab"/>
-            <xsl:with-param name="default">advanced</xsl:with-param>
-            <xsl:with-param name="menu">
-              <item label="advTab">advanced</item>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:when>
-        <xsl:otherwise>
-          <!-- metadata type-specific complete tab -->
-          <xsl:variable name="tabTemplate" select="concat($schema,'CompleteTab')"/>
-          <saxon:call-template name="{$tabTemplate}">
-            <xsl:with-param name="tabLink" select="$tabLink"/>
-            <xsl:with-param name="schema" select="$schema"/>
-          </saxon:call-template>
-
-        </xsl:otherwise>
-      </xsl:choose>
-
-      <!-- xml tab -->
-      <xsl:if test="/root/gui/env/metadata/enableXmlView = 'true'">
         <xsl:call-template name="mainTab">
-          <xsl:with-param name="title" select="/root/gui/strings/xmlTab"/>
-          <xsl:with-param name="default">xml</xsl:with-param>
+          <xsl:with-param name="title">Default</xsl:with-param>
+          <xsl:with-param name="default">default</xsl:with-param>
           <xsl:with-param name="menu">
-            <item label="xmlTab">xml</item>
+            <item label="xmlTab">default</item>
           </xsl:with-param>
         </xsl:call-template>
-      </xsl:if>
+
+        <xsl:call-template name="mainTab">
+          <xsl:with-param name="title">Advanced</xsl:with-param>
+          <xsl:with-param name="default">advanced</xsl:with-param>
+          <xsl:with-param name="menu">
+            <item label="xmlTab">advanced</item>
+          </xsl:with-param>
+        </xsl:call-template>
     </div>
   </xsl:template>
 

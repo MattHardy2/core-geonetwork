@@ -1847,6 +1847,29 @@
       </xsl:when>
       
       
+      <!-- JRC specific views -->
+      <!-- Advanced tab -->
+      <xsl:when test="$currTab='advanced'">
+        <xsl:call-template name="iso19139Complete">
+          <xsl:with-param name="schema" select="$schema"/>
+          <xsl:with-param name="edit"   select="$edit"/>
+        </xsl:call-template>
+      </xsl:when>
+      <!-- Default tab -->
+      <xsl:when test="$currTab='default'">
+        <xsl:call-template name="iso19139Simple">
+          <xsl:with-param name="schema" select="$schema"/>
+          <xsl:with-param name="edit"   select="$edit"/>
+        </xsl:call-template>
+      </xsl:when>
+      <!-- Default tab -->
+      <xsl:when test="$currTab='ultralight'">
+        <xsl:call-template name="iso19139Ultralight">
+          <xsl:with-param name="schema" select="$schema"/>
+          <xsl:with-param name="edit"   select="$edit"/>
+        </xsl:call-template>
+      </xsl:when>
+      
       <!-- default -->
       <xsl:otherwise>
         <xsl:call-template name="iso19139Simple">
@@ -2321,6 +2344,42 @@
       <xsl:with-param name="schema" select="$schema"/>
       <xsl:with-param name="edit"   select="$edit"/>
       <xsl:with-param name="flat"   select="$flat"/>
+    </xsl:apply-templates>
+    
+  </xsl:template>
+   <!-- ============================================================================= -->
+  <!--
+  ultralight mode; ISO order is:
+  - gmd:fileIdentifier
+  + gmd:dataSetURI
+  + gmd:locale
+  - gmd:distributionInfo
+  -->
+  <!-- ============================================================================= -->
+
+  <xsl:template name="iso19139Ultralight">
+    <xsl:param name="schema"/>
+    <xsl:param name="edit"/>
+    <xsl:param name="flat"/>
+    
+    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
+      <xsl:with-param name="schema" select="$schema"/>
+      <xsl:with-param name="edit"   select="$edit"/>
+    </xsl:apply-templates>
+    
+    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract">
+      <xsl:with-param name="schema" select="$schema"/>
+      <xsl:with-param name="edit"   select="$edit"/>
+    </xsl:apply-templates>
+
+    <xsl:apply-templates mode="elementEP" select="gmd:distributionInfo|geonet:child[string(@name)='distributionInfo']">
+      <xsl:with-param name="schema" select="$schema"/>
+      <xsl:with-param name="edit"   select="$edit"/>
+    </xsl:apply-templates>
+
+    <xsl:apply-templates mode="elementEP" select="gmd:contact|geonet:child[string(@name)='contact']">
+      <xsl:with-param name="schema" select="$schema"/>
+      <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>
     
   </xsl:template>
