@@ -513,7 +513,7 @@ public class Dbms
 				e.printStackTrace();
 				this.conn = null;
 			}
-		} else if(isClosed() || isInvalid()) {
+		} else if(isClosed()) {
             Log.debug(Log.RESOURCES, "Connection was closed! "+ conn.hashCode());
 			try {
 				this.conn = this.dataSource.getConnection();
@@ -523,24 +523,6 @@ public class Dbms
 				e.printStackTrace();
 				this.conn = null;
 			}
-		}
-	}
-	
-
-	/**
-	 * Try by all means detect if the connection is invalid
-	 * @return
-	 */
-	public boolean isInvalid()
-	{
-		try
-		{
-			return !conn.isValid(600);
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-			return true;
 		}
 	}
 }
