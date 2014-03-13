@@ -47,6 +47,16 @@
             <item label="xmlTab">advanced</item>
           </xsl:with-param>
         </xsl:call-template>
+        <!-- xml tab -->
+      	<xsl:if test="/root/gui/env/metadata/enableXmlView = 'true'">
+	        <xsl:call-template name="mainTab">
+	          <xsl:with-param name="title" select="/root/gui/strings/xmlTab"/>
+	          <xsl:with-param name="default">xml</xsl:with-param>
+	          <xsl:with-param name="menu">
+	            <item label="xmlTab">xml</item>
+	          </xsl:with-param>
+	        </xsl:call-template>
+	   </xsl:if>
     </div>
   </xsl:template>
 
