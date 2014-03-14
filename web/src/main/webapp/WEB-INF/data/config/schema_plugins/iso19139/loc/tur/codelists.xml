@@ -1322,117 +1322,26 @@
 	</codelist>
 	<!-- ==================================================== -->
 	<codelist name="gmd:MD_ScopeCode">
-		<entry>
-			<code>attribute</code>
-			<label>Nitelik</label>
-			<description>nitelik sınıfı için geçerlidir</description>
+				<entry>
+			<code>collection</code>
+			<label>Collection</label>
+			<description>Information applies to the collection</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>attributeType</code>
-			<label>Nitelik Tipi</label>
-			<description>bir objenin (feature) karakteristiği için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>collectionHardware</code>
-			<label>Çoklu Donanım</label>
-			<description>çoklu donanım sınıfı için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>collectionSession</code>
-			<label>Çoklu Oturum</label>
-			<description>çoklu oturum için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>dataset</code>
-			<label>Veri Seti</label>
-			<description>veri seti için geçerlidir</description>
+			<label>Dataset</label>
+			<description>Information applies to the dataset</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>series</code>
-			<label>Seriler</label>
-			<description>seriler için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>nonGeographicDataset</code>
-			<label>Coğrafi Olmayan Veri Seti</label>
-			<description>coğrafi olmayan veri seti için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>dimensionGroup</code>
-			<label>Boyut Grubu</label>
-			<description>boyut grubu için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>feature</code>
-			<label>Obje (Feature)</label>
-			<description>Obje (Feature) için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>featureType</code>
-			<label>Obje (Feature) Tipi</label>
-			<description>Obje (Feature) tipi için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>propertyType</code>
-			<label>Mülkiyet Tipi</label>
-			<description>mülkiyet tipi için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>fieldSession</code>
-			<label>Araziye Uygulanan Bilgi</label>
-			<description>araziye uygulanan bilgi için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>software</code>
-			<label>Yazılım</label>
-			<description>bir bilgisayar programı ve rutini için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>service</code>
-			<label>Servis</label>
-			<description>kullanım durumu (use case) gibi bir davranışı tanımlayan bir arayüz seti üzerinden bir servis sağlayıcısının bir servis kullanıcısına sağladığı kabiliyetler için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>model</code>
-			<label>Model</label>
-			<description>mevcut veya varsayılan bir objenin kopyası veya taklidi için geçerlidir</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>tile</code>
-			<label>Tile</label>
-			<description>coğrafi datanın mekansal bir alt kümesi, bir tile için geçerlidir</description>
-		</entry>
-		<!-- ISO PROFIL CHE ONLY
-		<entry>
-			<code>project</code>
-			<label>Project</label>
-			<description></description>
+			<label>Series</label>
+			<description>Information applies to the series</description>
 		</entry>
 		<entry>
-			<code>stationSite</code>
-			<label>Station site</label>
-			<description></description>
+			<code>application</code>
+			<label>Application</label>
+			<description>Information applies to the application</description>
 		</entry>
-		<entry>
-			<code>publication</code>
-			<label>Publication</label>
-			<description>Publication</description>
-		</entry>-->
 		
 		<!-- Used for facet translation only and not displayed in editor -->
 		<entry hideInEditMode="true">

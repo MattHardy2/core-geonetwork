@@ -115,13 +115,13 @@
 	</xs:complexType>
 	<!-- =========================================================================== -->
 	<!-- ........................................................................ -->
-	<xs:element name="MX_ScopeCode" type="gco:CodeListValue_Type" substitutionGroup="gmd:MD_ScopeCode"/>
-	<!-- ........................................................................ -->
+	<!-- <xs:element name="MX_ScopeCode" type="gco:CodeListValue_Type" substitutionGroup="gmd:MD_ScopeCode"/>
+	........................................................................
 	<xs:complexType name="MX_ScopeCode_PropertyType">
 		<xs:sequence minOccurs="0">
 			<xs:element ref="gmx:MX_ScopeCode"/>
 		</xs:sequence>
 		<xs:attribute ref="gco:nilReason"/>
-	</xs:complexType>
+	</xs:complexType> -->
 	<!-- =========================================================================== -->
 </xs:schema>

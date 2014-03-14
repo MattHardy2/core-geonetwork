@@ -1305,101 +1305,25 @@
 	</codelist>
 	<!-- ==================================================== -->
 	<codelist name="gmd:MD_ScopeCode">
-		<entry>
-			<code>attribute</code>
-			<label>Atributo</label>
-			<description>Informação aplica-se à classe de atributos</description>
+				<entry>
+			<code>collection</code>
+			<label>Collection</label>
+			<description>Information applies to the collection</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>attributeType</code>
-			<label>Tipo de atributo</label>
-			<description>Informação aplica-se à particularidade duma característica</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>collectionHardware</code>
-			<label>Hardware de colecção</label>
-			<description>Informação aplica-se à classe de hardware de colecção</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>collectionSession</code>
-			<label>Sessão de colecçõ</label>
-			<description>Informação aplica-se à sessão de colecçõ</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>dataset</code>
-			<label>Conjunto de dados</label>
-			<description>Informação aplica-se ao conjunto de dados</description>
+			<label>Dataset</label>
+			<description>Information applies to the dataset</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>series</code>
-			<label>Série</label>
-			<description>Informação aplica-se à série</description>
+			<label>Series</label>
+			<description>Information applies to the series</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
-			<code>nonGeographicDataset</code>
-			<label>Conjunto de dados não-geográficos</label>
-			<description>Informação aplica-se a dados não-geográficos</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>dimensionGroup</code>
-			<label>Grupo de dimensão</label>
-			<description>Informação aplica-se a um grupo de dimensão</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>feature</code>
-			<label>Característica</label>
-			<description>Informação aplica-se a uma característica</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>featureType</code>
-			<label>Tipo de característica</label>
-			<description>Informação aplica-se a feature type</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>propertyType</code>
-			<label>Tipo de propriedade</label>
-			<description>Informação aplica-se a um tipo de propriedade</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>fieldSession</code>
-			<label>Sessão de campo</label>
-			<description>Informação aplica-se a uma sessão de campo</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>software</code>
-			<label>Software</label>
-			<description>Informação aplica-se a uma programa ou rotina de computador</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>service</code>
-			<label>Serviço</label>
-			<description>Informação aplica-se a uma capacidade, qual um provedor de acesso à Internet disponibiliza
-				a um utilizador por um conjunto de interfaces, que define um comportamento, tal como um caso de uso</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>model</code>
-			<label>Modelo</label>
-			<description>Informação aplica-se a uma cópia ou imitaçõ dum objecto existente ou hipotético</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>tile</code>
-			<label>Tile</label>
-			<description>Informação aplica-se a um 'tile', um subconjunto espacial de dados geográficos</description>
+			<code>application</code>
+			<label>Application</label>
+			<description>Information applies to the application</description>
 		</entry>
 		
 		<!-- Used for facet translation only and not displayed in editor -->

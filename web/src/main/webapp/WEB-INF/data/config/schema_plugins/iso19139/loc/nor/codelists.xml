@@ -1386,120 +1386,25 @@
 	<!-- ==================================================== -->
 	<codelist name="gmd:MD_ScopeCode">
 		<entry>
-			<code>attribute</code>
-			<label>Egenskap</label>
-			<description>Information applies to the attribute class</description>
+			<code>collection</code>
+			<label>Collection</label>
+			<description>Information applies to the collection</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>attributeType</code>
-			<label>Egenskapstype</label>
-			<description>Information applies to the characteristic of a feature</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>collectionHardware</code>
-			<label>Maskinvare</label>
-			<description>Information applies to the collection hardware class</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>collectionSession</code>
-			<label>datainnsamling</label>
-			<description>Information applies to the collection session</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>dataset</code>
-			<label>Datasett</label>
+			<label>Dataset</label>
 			<description>Information applies to the dataset</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>series</code>
-			<label>Datasettserie</label>
+			<label>Series</label>
 			<description>Information applies to the series</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
-			<code>nonGeographicDataset</code>
-			<label>Ikke-stedfestede data</label>
-			<description>Information applies to non-geographic data</description>
+			<code>application</code>
+			<label>Application</label>
+			<description>Information applies to the application</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>dimensionGroup</code>
-			<label>Gruppe</label>
-			<description>Information applies to a dimension group</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>feature</code>
-			<label>Objekt</label>
-			<description>Information applies to a feature</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>featureType</code>
-			<label>Objekttype</label>
-			<description>Information applies to a feature type</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>propertyType</code>
-			<label>Eierforholdtype</label>
-			<description>Metadata er gitt på typer av eieforhold</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>fieldSession</code>
-			<label>Kolonnegruppering</label>
-			<description>Metadata er gitt for en gruppe felt/kolonner i en tabell</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>software</code>
-			<label>Software</label>
-			<description>Information applies to a computer program or routine</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>service</code>
-			<label>Tjeneste</label>
-			<description>Information applies to a capability which a service provider entity makes
-				available to a service user entity through a set of interfaces that define a behaviour,
-				such as a use case</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>model</code>
-			<label>Modell</label>
-			<description>Information applies to a copy or imitation of an existing or hypothetical
-				object</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>tile</code>
-			<label>Flis</label>
-			<description>Information applies to a tile, a spatial subset of geographic
-			data</description>
-		</entry>
-		<!-- ISO PROFIL CHE ONLY
-		<entry>
-			<code>project</code>
-			<label>Project</label>
-			<description></description>
-		</entry>
-		<entry>
-			<code>stationSite</code>
-			<label>Station site</label>
-			<description></description>
-		</entry>
-		<entry>
-			<code>publication</code>
-			<label>Publication</label>
-			<description>Publication</description>
-		</entry>-->
 		
 		<!-- Used for facet translation only and not displayed in editor -->
 		<entry hideInEditMode="true">

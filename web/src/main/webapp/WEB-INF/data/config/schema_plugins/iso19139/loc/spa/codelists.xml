@@ -1340,104 +1340,25 @@
 	</codelist>
 	<!-- ==================================================== -->
 	<codelist name="gmd:MD_ScopeCode">
-		<entry>
-			<code>attribute</code>
-			<label>Atributo</label>
-			<description>Que información se aplica a esta clase de atributo</description>
+				<entry>
+			<code>collection</code>
+			<label>Collection</label>
+			<description>Information applies to the collection</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>attributeType</code>
-			<label>Attribute type</label>
-			<description>Information applies to the characteristic of a feature</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>collectionHardware</code>
-			<label>Collection hardware</label>
-			<description>Information applies to the collection hardware class</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>collectionSession</code>
-			<label>Collection session</label>
-			<description>Information applies to the collection session</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>dataset</code>
-			<label>Conjunto de datos</label>
-			<description>Información aplicada al conjunto de datos</description>
+			<label>Dataset</label>
+			<description>Information applies to the dataset</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>series</code>
 			<label>Series</label>
 			<description>Information applies to the series</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
-			<code>nonGeographicDataset</code>
-			<label>Non geographic dataset</label>
-			<description>Information applies to non-geographic data</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>dimensionGroup</code>
-			<label>Dimension group</label>
-			<description>Information applies to a dimension group</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>feature</code>
-			<label>Feature</label>
-			<description>Information applies to a feature</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>featureType</code>
-			<label>Feature type</label>
-			<description>Information applies to a feature type</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>propertyType</code>
-			<label>Property type</label>
-			<description>Information applies to a property type</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>fieldSession</code>
-			<label>Field session</label>
-			<description>Information applies to a field session</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>software</code>
-			<label>Software</label>
-			<description>Information applies to a computer program or routine</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>service</code>
-			<label>Service</label>
-			<description>Information applies to a capability which a service provider entity makes
-				available to a service user entity through a set of interfaces that define a behaviour,
-				such as a use case</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>model</code>
-			<label>Model</label>
-			<description>Information applies to a copy or imitation of an existing or hypothetical
-				object</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>tile</code>
-			<label>Tile</label>
-			<description>Information applies to a tile, a spatial subset of geographic
-			data</description>
+			<code>application</code>
+			<label>Application</label>
+			<description>Information applies to the application</description>
 		</entry>
 		
 		<!-- Used for facet translation only and not displayed in editor -->

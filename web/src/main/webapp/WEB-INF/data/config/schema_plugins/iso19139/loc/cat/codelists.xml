@@ -1274,119 +1274,25 @@
 	<!-- ==================================================== -->
 	<codelist name="gmd:MD_ScopeCode">
 		<entry>
-			<code>attribute</code>
-			<label>Atribut</label>
-			<description>informació aplicada a un atribut</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>attributeType</code>
-			<label>Tipus d'atribut</label>
-			<description>informació aplicada a un tipus d'atribut</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>collectionHardware</code>
-			<label>Maquinari de captura</label>
-			<description>informació aplicada a maquinari de captura</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>collectionSession</code>
-			<label>Sessió de captura</label>
+			<code>collection</code>
+			<label>Collection</label>
 			<description>informació aplicada a una sessió de captura</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>dataset</code>
 			<label>Conjunt de dades</label>
 			<description>informació aplicada a un conjunt de dades</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
 			<code>series</code>
 			<label>Sèries</label>
 			<description>informació aplicada a una sèrie</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		<entry>
-			<code>nonGeographicDataset</code>
-			<label>Conjunt de dades no geogràfiques</label>
-			<description>informació aplicada a conjunts de dades no geogràfiques</description>
+			<code>application</code>
+			<label>Application</label>
+			<description>Information applies to the application</description>
 		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>dimensionGroup</code>
-			<label>Grup de dimensions</label>
-			<description>informació aplicada a un grup de dimensions</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>feature</code>
-			<label>Objecte</label>
-			<description>informació aplicada a un objecte</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>featureType</code>
-			<label>Tipus d'objecte</label>
-			<description>informació aplicada a un tipus d'objecte</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>propertyType</code>
-			<label>Tipus de propietat</label>
-			<description>informació aplicada a un tipus de propietat</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>fieldSession</code>
-			<label>Sessió de camp</label>
-			<description>informació aplicada a una sessió de camp</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>software</code>
-			<label>Programari</label>
-			<description>informació aplicada a un programa o rutina</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>service</code>
-			<label>Servei</label>
-			<description>information applies to a capability which a service provider entity makes available to a service user entity through a set of interfaces that define a behaviour,
-				such as a use case</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>model</code>
-			<label>Model</label>
-			<description>informació aplicada a la còpia o imitació d'un objecte existent o hipotètic</description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-		<entry>
-			<code>tile</code>
-			<label>Tessel·la</label>
-			<description>informació aplicada a una tessel·la</description>
-		</entry>
-		
-		<!-- Used for facet translation only and not displayed in editor -->
-		<entry hideInEditMode="true">
-			<code>map</code>
-			<label>Map</label>
-			<description></description>
-		</entry>
-		<entry hideInEditMode="true">
-			<code>staticMap</code>
-			<label>Static map</label>
-			<description></description>
-		</entry>
-		<entry hideInEditMode="true">
-			<code>interactiveMap</code>
-			<label>Interactive map</label>
-			<description></description>
-		</entry>
-		<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 	</codelist>
 	<!-- ==================================================== -->
 	<codelist name="gmd:MD_SpatialRepresentationTypeCode">
