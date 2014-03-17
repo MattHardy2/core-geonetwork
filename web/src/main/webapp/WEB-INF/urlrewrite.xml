@@ -143,7 +143,7 @@
     <rule>
     	<name>Redirect Metadata to New Editor</name>
         <from >^/srv/(.*)/metadata.edit\?id=(.*)$</from>
-        <to type="permanent-redirect">%{context-path}/srv/$1/search#edit=$2</to>
+        <to type="permanent-redirect">%{context-path}/apps/search/#edit=$2</to>
     </rule>
     
     <rule>
