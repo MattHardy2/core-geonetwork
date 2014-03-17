@@ -54,9 +54,9 @@ GeoNetwork.editor.HelpPanel = Ext.extend(Ext.Panel, {
             var panel = this;
             GeoNetwork.util.HelpTools.get(id, this.editor.metadataSchema, this.editor.catalogue.services.schemaInfo, function(r) {
                 panel.cache[id] = panel.tipTpl.apply(r.records[0].data);
-                
-                panel.update(panel.cache[id]);
             });
+        } else {
+            this.update(this.cache[id]);
         }
     },
     updateHelp: function(id, section){

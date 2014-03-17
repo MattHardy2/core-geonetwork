@@ -6,8 +6,26 @@
 	xmlns:gmx="http://www.isotc211.org/2005/gmx">
 
 	<element name="gmd:MD_ScopeCode">
-		<label>Scope code</label>
-		<description>Class of information to which the referencing entity applies</description>
+		<label>Resource Type</label>
+		<description>&lt;p&gt;This choice will be usually the first you make: depending on the resource 
+		type you will be asked to fill different elements. &lt;/p&gt;&lt;p&gt;Classification of the resource based on its 
+		scope is important as a user searching for data should easily be able to tell if a resource found
+		 is a dataset or data series.&lt;/p&gt;</description>
+		<help>&lt;p&gt;Enter the Resource Type that fits the data. A dataset is an identifiable 
+		 collection of data [ISO 19115], while a data series is a collection of related datasets that 
+		 share the same product specification [ISO 19115]. The contained datasets can usually be 
+		 accessed separately. &lt;/p&gt;&lt;p&gt;For example, the IMAGE 2000 series of individual 
+		 orthorectified scenes in national map projection system is considered a data series as the 
+		 same data has been recorded for different areas (Landsat TM path and rows). Another example of 
+		 data series is when the same data has been recorded on a regular basis over time. &lt;/p&gt; </help>
+		 <example>Dataset</example>
+		 <inspireInfo>Domain Code list provided by ISO 19115 MD_ScopeCode. Those used in the  context of 
+		 this guidelines for datasets and data series are: 
+		 &lt;ul&gt;
+		 	&lt;li&gt;dataset&lt;/li&gt;
+			&lt;li&gt;series&lt;/li&gt;
+		 &lt;/ul&gt;
+		</inspireInfo>
 	</element>
 	<element name="code" id="207.0" context="gmd:MD_Identifier">
 		<label>Code</label>
@@ -51,7 +69,7 @@
 	<element name="gco:DateTime">
 		<label>Date and time</label>
 		<description>Date and time or range of date and time on or over which the process step occurred 
-		(YYYY-MM-DDThh:mm:ss)</description> 
+		(YYYY-MM-DDThh:mm:ss)</description>
 	</element>
 	<element name="gco:Measure" id="100.0" context="gmd:DQ_Element">
 		<label>Name of Measure</label>
@@ -439,8 +457,45 @@
 		<description>URL</description>
 	</element>
 	<element name="gmd:abstract" id="25.0">
-		<label>Abstract</label>
-		<description>Brief narrative summary of the content of the resource(s)</description>
+		<label>Resource Abstract</label>
+		<description>
+		&lt;p&gt;The abstract provides a clear and concise statement that enables the  reader to 
+		understand the content of the dataset.&lt;/p&gt;
+		&lt;p&gt;When performing a text search many search algorithms will give a high priority will
+		be given to results that find the desired search text in the abstract.&lt;/p&gt; </description>
+		<help>
+		&lt;p&gt;A succinct description (avoid acronyms, if you use them, explain them) of the dataset 
+		to include:
+		&lt;ul&gt;
+		&lt;li&gt;Brief summary: start with the most important details that summarise your dataset.&lt;/li&gt;
+		&lt;li&gt;Main attributes: briefly describe the main attributes of your dataset.&lt;/li&gt;
+		&lt;li&gt;Data sources: List the data sources, focus on the responsible parties.&lt;/li&gt;
+		&lt;li&gt;Legal references: List the legal references of your data&lt;/li&gt;
+		&lt;li&gt;Importance of the work: List the importance of this work, in which other projects is it used? &lt;/li&gt;
+		&lt;li&gt;Coverage: A linguistic transcriptions of the extent or location in addition to the bounding box. 
+		&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;/p&gt;
+		&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; Many discovery clients represent as a first preview only the first 100 
+		characters or the first sentence of the abstract. Therefore, please summarise the most important details 
+		you would like to communicate in this first sentence.&lt;/p&gt;
+		&lt;p&gt;</help>
+		<example>
+		&lt;p&gt;This data set contains the location of over 4000 Pan European airports and heliports and the most important 
+		runways, taken from different sources. &lt;/p&gt;
+		&lt;p&gt;All the airports and heliports reported by Eurocontrol and 
+		those covered by Commission Regulation (EC) No 1358/2003 and related acts (Commission Regulation (EC)
+		 No 158/2007, Commission Regulation (EC) No 546/2005) 
+		 (http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2003:194:0009:0033:EN:PDF) 
+		 are depicted as points. The large airports are also depicted as areas (polygons) and include all – 
+		 except one – of the airports covered by Commission Regulation (EC) No 1358/2003 (and related acts).
+		  The most important runways are depicted as polylines. There is also an additional layer 
+		  including all the heliports available in the EuroRegionalMap v.3.0 
+		  from Eurogeographics. Airports can be identified via different codes (including TEN, IATA ICAO 
+		  airport codes and the codes reported in Commission Regulation (EC) No 1358/2003 and amendments).
+		  &lt;/p&gt;
+		&lt;p&gt;Dataset coverage is geographic Europe plus territories outside Europe administrated by Member 
+		  States of the European Union.&lt;/p&gt;</example>
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:accessConstraints" id="70.0">
@@ -865,7 +920,8 @@
 	</element>
 	<element name="gmd:description" id="401.0" context="gmd:CI_OnlineResource">
 		<label>Description</label>
-		<description>Detailed text description of what the online resource is/does</description>
+		<description>Please provide a brief description. If there is a restricted access to this service 
+		please state for whom it is accessible.</description>
 	</element>
 	<element name="gmd:description" id="541.0" context="gmd:MD_CodeDomain">
 		<label>Description</label>
@@ -1122,7 +1178,50 @@
 	</element>
 	<element name="gmd:function" id="402.0">
 		<label>Function</label>
-		<description>Code for function performed by the online resource</description>
+		<description>&lt;p&gt;Each of the functions is used in a particular context. The context is given 
+		below: &lt;/p&gt;&lt;p&gt;A link to a web page with &lt;b&gt;additional information&lt;/b&gt;
+		about the resource, e.g. with additional metadata, should have a Function of 
+		‘&lt;b&gt;information&lt;/b&gt;’.&lt;/p&gt;&lt;p&gt;If it is possible to &lt;b&gt;download&lt;/b&gt;
+		the resource data then links for how to do this must be provided. These could be any of the 
+		following:&lt;ul&gt;
+		&lt;li&gt;A direct download link that returns the actual data has the function: &lt;b&gt;download&lt;/b&gt;.&lt;/li&gt;
+		&lt;li&gt;A link to an application that allows selecting and downloading data from a large database 
+		based on additional criteria such as time, location, etc has the function: &lt;b&gt;download&lt;/b&gt;. &lt;/li&gt;
+		&lt;li&gt;A link to an application that allows selecting data from a large database based on 
+		additional criteria such as time, location, etc has the function: &lt;b&gt;download&lt;/b&gt;. &lt;/li&gt;
+		&lt;li&gt;A link to a download service i.e. to the GetCapabilities document (in the case of an OGC 
+		WFS) that provides all the details of an existing service from which the data can be obtained 
+		(the form of the link is not important; it could be a GetCapabilities request or point to a XML 
+		file within a directory available on the web. The only requirement is that the link returns the 
+		service capabilities XML file). This has the function &lt;b&gt;download&lt;/b&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;/p&gt;
+		&lt;p&gt;Links to &lt;b&gt;order&lt;/b&gt; the data could be provided in two different ways:&lt;ul&gt;
+		&lt;li&gt;Links pointing to a site for an online order process for obtaining the resource. 
+		This link has the function &lt;b&gt;order&lt;/b&gt;. &lt;/li&gt;
+		&lt;li&gt;Link pointing to online instructions for requesting the resource from the provider. 
+		This link has the function &lt;b&gt;offlineAccess&lt;/b&gt; &lt;/li&gt;		&lt;/ul&gt;
+		&lt;/p&gt;
+		&lt;p&gt;If it is possible to &lt;b&gt;view&lt;/b&gt; the resource data then links for 
+		how to do this must be provided:&lt;ul&gt;
+		&lt;li&gt;A view application link that allows users to e.g. see the different map layers created
+		from the resource data. This link has the function &lt;b&gt;view&lt;/b&gt;.&lt;/li&gt;
+		&lt;li&gt;A link to a view service i.e. to a GetCapabilities document that  provides all the 
+		details of an existing web map service from which maps created from the resource can be obtained 
+		(again the form of this URL is not important but the link must return the service capabilities 
+		XML file). This link has the function &lt;b&gt;view&lt;/b&gt;.		&lt;/ul&gt;
+		&lt;/p&gt;
+		&lt;p&gt;For a data series, if it is possible to search for the contained datasets that make up
+		the series then links for how to do this must be provided and could be any of the following:
+		&lt;ul&gt;
+		&lt;li&gt;A search application link that allows users to search for the datasets. This link 
+		points to an application and thus has the function &lt;b&gt;search&lt;/b&gt;.&lt;/li&gt;
+		&lt;li&gt;A link to a discovery service i.e. to a GetCapabilities document that provides all 
+		the details of a discovery service from which metadata for the datasets can be obtained. This 
+		link has the function &lt;b&gt;discovery&lt;/b&gt;.&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;/p&gt;
+</description>
 	</element>
 	<element name="gmd:geographicElement" id="336.0">
 		<label>Geographic element</label>
@@ -1170,9 +1269,26 @@
             resource</description>
 	</element>
 	<element name="gmd:hierarchyLevel" id="6.0">
-		<label>Hierarchy level</label>
-		<description>Scope to which the metadata applies (see annex H for more information about
-            metadata hierarchy levels)</description>
+		<label>Resource Type</label>		
+		<description>&lt;p&gt;This choice will be usually the first you make: depending on the resource 
+		type you will be asked to fill different elements. &lt;/p&gt;&lt;p&gt;Classification of the resource based on its 
+		scope is important as a user searching for data should easily be able to tell if a resource found
+		 is a dataset or data series.&lt;/p&gt;</description>
+		<help>&lt;p&gt;Enter the Resource Type that fits the data. A dataset is an identifiable 
+		 collection of data [ISO 19115], while a data series is a collection of related datasets that 
+		 share the same product specification [ISO 19115]. The contained datasets can usually be 
+		 accessed separately. &lt;/p&gt;&lt;p&gt;For example, the IMAGE 2000 series of individual 
+		 orthorectified scenes in national map projection system is considered a data series as the 
+		 same data has been recorded for different areas (Landsat TM path and rows). Another example of 
+		 data series is when the same data has been recorded on a regular basis over time. &lt;/p&gt; </help>
+		 <example>Dataset</example>
+		 <inspireInfo>Domain Code list provided by ISO 19115 MD_ScopeCode. Those used in the  context of 
+		 this guidelines for datasets and data series are: 
+		 &lt;ul&gt;
+		 	&lt;li&gt;dataset&lt;/li&gt;
+			&lt;li&gt;series&lt;/li&gt;
+		 &lt;/ul&gt;
+		</inspireInfo>
 	</element>
 	<element name="gmd:hierarchyLevelName" id="7.0">
 		<label>Hierarchy level name</label>
@@ -1245,20 +1361,55 @@
 		<description>Information identifying the issue of the series</description>
 	</element>
 	<element name="gmd:keyword" id="53.0">
-		<label>Keyword</label>
-		<description>Commonly used word(s) or formalised word(s) or phrase(s) used to describe the
-            subject</description>
+		<label>Keyword Value</label>
+		<description>Highlight the general subject area of the content of the data resource. Like in a library, 
+		they allow the metadata creator to tag data and the user to find the data based on these tags. This 
+		element is similar to Topic Category but the Keyword Value is not fixed to a high-level code list
+		provided by ISO, instead metadata creators are free to enter more appropriate terms to describe 
+		the data resource.</description>
+		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:language" context="gmd:MD_Metadata" id="3.0">
-		<label>Metadata language</label>
-		<description>Language used for documenting metadata</description>
+		<label>Resource Language</label>
+		<description>&lt;p&gt;This is important information for the user. For example, your resource 
+		might be in Spanish because you have listed the Spanish forest fire season data for 2010.&lt;/p&gt;
+		&lt;p&gt;Naturally, if you are describing a numeric grid, the language is not applicable.&lt;/p&gt;
+		</description>
+		<example>Eng</example>
+		<help>&lt;p&gt;Domain Code list provided by ISO 639-2 which describes each language in 
+		three-letter tags.&lt;/p&gt;
+		&lt;p&gt;Some commonly used values are: 
+		&lt;ul&gt;
+		&lt;li&gt;eng - English &lt;/li&gt;
+		&lt;li&gt;dut - Dutch  &lt;/li&gt;
+		&lt;li&gt;fre - French  &lt;/li&gt;
+		&lt;li&gt;ger - German  &lt;/li&gt;
+		&lt;li&gt;gre - Greek  &lt;/li&gt;
+		&lt;li&gt;ita - Italian  &lt;/li&gt;
+		&lt;li&gt;spa – Spanish &lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;</help>
 		<condition>conditional</condition>
 	</element>
 	<element name="gmd:language" context="gmd:MD_DataIdentification"
 		id="39.0">
-		<label>Language</label>
-		<description>Language(s) used within the dataset</description>
-		<help>language(s) used within the dataset</help>
+		<label>Resource Language</label>
+		<description>&lt;p&gt;This is important information for the user. For example, your resource 
+		might be in Spanish because you have listed the Spanish forest fire season data for 2010.&lt;/p&gt;
+		&lt;p&gt;Naturally, if you are describing a numeric grid, the language is not applicable.&lt;/p&gt;
+		</description>
+		<example>Eng</example>
+		<help>&lt;p&gt;Domain Code list provided by ISO 639-2 which describes each language in 
+		three-letter tags.&lt;/p&gt;
+		&lt;p&gt;Some commonly used values are: 
+		&lt;ul&gt;
+		&lt;li&gt;eng - English &lt;/li&gt;
+		&lt;li&gt;dut - Dutch  &lt;/li&gt;
+		&lt;li&gt;fre - French  &lt;/li&gt;
+		&lt;li&gt;ger - German  &lt;/li&gt;
+		&lt;li&gt;gre - Greek  &lt;/li&gt;
+		&lt;li&gt;ita - Italian  &lt;/li&gt;
+		&lt;li&gt;spa – Spanish &lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;</help>
 		<_condition>Mandatory</_condition>
 	</element>
 	<element name="gmd:language" context="gmd:MD_FeatureCatalogueDescription"
@@ -1290,8 +1441,55 @@
 	</element>
 	<element name="gmd:linkage" id="397.0">
 		<label>Linkage</label>
-		<description>Location (address) for on-line access using a Uniform Resource Locator address
-            or similar addressing scheme such as http://www.statkart.no/isotc211</description>
+		<description>&lt;p&gt;This is the ‘navigation section’ of your metadata record. From here you 
+		can point users to the location (URL) where the data can be downloaded, to related view services 
+		or to where additional information about the resource may be provided. Setting up the correct 
+		resource locators is important for the connection between the data and the services that provide 
+		access to them or for providing additional information concerning the resource. &lt;/p&gt;&lt;p&gt;
+		As you have seen above, the possibilities, and uses of this field, are numerous: information, 
+		application, download service view service, you name it. This multiple use comes with a problem: 
+		The person reading the metadata will only see an unsorted and uninformative list of links. If a 
+		person tries to download the data, he or she would eventually have to go through all the links 
+		separately, possibly only to find out that none of the links provided actually gives access to 
+		the data. To solve this we suggest three optional additional elements that provide more 
+		information: A human-readable title and a description, and a machine-readable function code. 
+		This allows providing additional information for the user and to automatically sort and label 
+		the locators.&lt;/p&gt;</description>
+		<inspireInfo>Other comments Please note that Name, Description and Function are optional &lt;b&gt;additional 
+		element&lt;/b&gt;, they are not part of the required INSPIRE Metadata. If the Metadata Editor that you 
+		are using does not support this element then leave it out.</inspireInfo>
+		<help>Other comments Please note that Name, Description and Function are optional &lt;b&gt;additional 
+		element&lt;/b&gt;, they are not part of the required INSPIRE Metadata. If the Metadata Editor that you 
+		are using does not support this element then leave it out.</help>
+		<example>&lt;p&gt;Additional information on the resource: &lt;ul&gt;
+		&lt;li&gt;Linkage - http://image2000.jrc.ec.europa.eu&lt;/li&gt;
+		&lt;li&gt;Name: Image 2000 project homepage (restricted access)&lt;/li&gt;
+		&lt;li&gt;Description: This page gives you access to all information and applications related 
+		to Image 2000. &lt;/li&gt;
+		&lt;li&gt;Function - information&lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;
+		&lt;p&gt;View service related to the resource:&lt;ul&gt;
+		&lt;li&gt;Linkage - http://ags-sdi-public.jrc.ec.europa.eu/arcgis/services/img2k_321_mos/Mapserver/WMSServer?request=GetCapabilities&amp;service=wms&amp;version=1.3.0&lt;/li&gt;
+		&lt;li&gt;Name: Image 2000 view service for the band Combination 3-2-1&lt;/li&gt;
+		&lt;li&gt;Description: This is an open access view service that gives access to the image 2000 
+		mosaic with the band combination 3-2-1. &lt;/li&gt;
+		&lt;li&gt;Function – view&lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;
+		&lt;p&gt;Download link for the resource:&lt;ul&gt;
+		&lt;li&gt;Linkage - http://www.eea.europa.eu/data-and-maps/data/corine-land-cover-2000-raster-1&lt;/li&gt;
+		&lt;li&gt;Name: Raster data on land cover for the Corine Land Cover 2000 (CLC2000) inventory&lt;/li&gt;
+		&lt;li&gt;Function – download&lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;
+		&lt;p&gt;Search application for the resource:&lt;ul&gt;
+		&lt;li&gt;Linkage - http://cidportal.jrc.ec.europa.eu/imagearchive/main/ &lt;/li&gt;
+		&lt;li&gt;Name: Community Image Data Portal (restricted access)&lt;/li&gt;
+		&lt;li&gt;Description: The Community Image (CID) Portal is a Web portal to search and access 
+		Remote Sensing data and derived products hosted at JRC. Search and preview is open to the public. 
+		Access to the image data via a variety of online services is limited to authorized and registered users. 
+		Staff of institutions of the European Union can be granted access to most of the archive data after 
+		registration&lt;/li&gt;
+		&lt;li&gt;Function – search&lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;</example>
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:maintenanceAndUpdateFrequency" id="143.0">
@@ -1418,7 +1616,9 @@
 	</element>
 	<element name="gmd:name" context="gmd:CI_OnlineResource" id="400.0">
 		<label>Name of the resource</label>
-		<description>Name of the online resource</description>
+		<description>Please provide a short title. In brackets after the title please provide a 
+		(restricted access) if there are any restrictions to the user group this webpage, application or 
+		service is available for.</description>
 	</element>
 	<element name="gmd:name" context="gmd:CI_Series" id="404.0">
 		<label>Name</label>
@@ -2200,8 +2400,22 @@
             keywords</description>
 	</element>
 	<element name="gmd:title" id="360.0">
-		<label>Title</label>
-		<description>Name by which the cited resource is known</description>
+		<label>Resource Title</label>
+		<description>&lt;p&gt;The title is the most informative element of your metadata record. When done correctly, 
+		with one glance the person searching for data understands which dataset he or she has in front of him.&lt;/p&gt;		
+		&lt;p&gt;In performing a text search in a catalogue client, the highest priority will often be given to results 
+		that find the desired search text in the title.&lt;/p&gt;</description>
+		<inspireInfo>inspire info</inspireInfo>
+		<help>
+		&lt;p&gt;Please spend some time thinking about the title.&lt;/p&gt;
+		&lt;p&gt;It must be concise and to the point. It should not contain unexplained acronyms. 
+		We suggest a maximum length of 250 characters. &lt;/p&gt;
+		&lt;p&gt;Please be as close as possible to the original title of the resource, in the sense of the 
+		‘official naming’.&lt;/p&gt;
+		&lt;p&gt;If this data is part of a larger project, you might indicate the Project at the end of the 
+		title, in brackets. In case of Project names, abbreviations are allowed, as long as the rest of the 
+		title follows the guidelines above and the abbreviation is spelled out immediately in the abstract.&lt;/p&gt; </help>
+		<example>Remotely sensed imagery, a series of individual multispectral orthorectified scenes (IMAGE 2000)</example>
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:title" id="507.0" context="gmd:MD_Legislation">
@@ -2214,7 +2428,35 @@
 	</element>
 	<element name="gmd:topicCategory" id="41.0">
 		<label>Topic category</label>
-		<description>Main theme(s) of the datset</description>
+		<description>Providing a basic classification for the data resource is important for metadata 
+		discovery. Please note that this differs from the INSPIRE Spatial Data themes.</description>
+		<example>Elevation</example>
+		<help>
+			&lt;p&gt;Select all categories that closely represent the topic of the data resource.&lt;/p&gt;
+			&lt;p&gt;Code list provided by ISO 19115 MD_TopicCategory:
+			&lt;ul&gt;
+			&lt;li&gt;farming&lt;/li&gt;
+			&lt;li&gt;biota&lt;/li&gt;
+			&lt;li&gt;boundaries&lt;/li&gt;
+			&lt;li&gt;climatologyMeteorologyAtmosphere&lt;/li&gt;
+			&lt;li&gt;economy&lt;/li&gt;
+			&lt;li&gt;elevation&lt;/li&gt;
+			&lt;li&gt;environment&lt;/li&gt;
+			&lt;li&gt;geoscientificInformation&lt;/li&gt;
+			&lt;li&gt;health&lt;/li&gt;
+			&lt;li&gt;imageryBaseMapsEarthCover&lt;/li&gt;
+			&lt;li&gt;intelligenceMilitary&lt;/li&gt;
+			&lt;li&gt;inlandWaters&lt;/li&gt;
+			&lt;li&gt;location&lt;/li&gt;
+			&lt;li&gt;oceans&lt;/li&gt;
+			&lt;li&gt;planningCadastre&lt;/li&gt;
+			&lt;li&gt;society&lt;/li&gt;
+			&lt;li&gt;structure&lt;/li&gt;
+			&lt;li&gt;transportation&lt;/li&gt;
+			&lt;li&gt;utilitiesCommunication&lt;/li&gt;
+			&lt;/ul&gt;&lt;/p&gt;
+			&lt;p&gt;See Appendix I for a brief description and examples of each Topic Category.&lt;/p&gt;
+		</help>
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:MD_TopicCategoryCode">
@@ -2771,11 +3013,23 @@
 	</element>
 	<element name="gmd:languageCode">
 		<label>Language</label>
-		<description>Language code</description>
-	</element>
-	<element name="gmd:LanguageCode">
-		<label>ISO Language code</label>
-		<description>Language code</description>
+		<description>&lt;p&gt;This is important information for the user. For example, your resource 
+		might be in Spanish because you have listed the Spanish forest fire season data for 2010.&lt;/p&gt;
+		&lt;p&gt;Naturally, if you are describing a numeric grid, the language is not applicable.&lt;/p&gt;
+		</description>
+		<example>Eng</example>
+		<help>&lt;p&gt;Domain Code list provided by ISO 639-2 which describes each language in 
+		three-letter tags.&lt;/p&gt;
+		&lt;p&gt;Some commonly used values are: 
+		&lt;ul&gt;
+		&lt;li&gt;eng - English &lt;/li&gt;
+		&lt;li&gt;dut - Dutch  &lt;/li&gt;
+		&lt;li&gt;fre - French  &lt;/li&gt;
+		&lt;li&gt;ger - German  &lt;/li&gt;
+		&lt;li&gt;gre - Greek  &lt;/li&gt;
+		&lt;li&gt;ita - Italian  &lt;/li&gt;
+		&lt;li&gt;spa – Spanish &lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;</help>
 	</element>
 	<element name="gmd:characterEncoding">
 		<label>Character encoding</label>
@@ -2903,110 +3157,110 @@
             * nM indicates the number of minutes
             * nS indicates the number of seconds            
         </description>
-    </element>
-    <element name="gco:CharacterString">
-        <label>Text</label>
-        <description/>
-    </element>
-    <element name="gco:nilReason">
-        <label>Nil reason</label>
-        <description/>
-    </element>
-    <element name="srv:DCPList">
-        <label>Distributed Computing Platforms list</label>
-    </element>
-    <element name="gmd:verticalCRS">
-        <label>Vertical CRS</label>
-        <description>Provides information about the origin from which the maximum and minimum elevation values are measured</description>
-    </element>
-    <element name="gmx:FileName">
-        <label>File name</label>
-        <description>File name and source URL.</description>
-    </element>
-    <element name="src">
-        <label>Source URL</label>
-        <description>URL of the document.</description>
-    </element>
-		<element name="gmx:Anchor">
-				<label>Anchor</label>
-				<description>Supports hyper-linking capabilities and ensures a web-like implementation of CharacterStrings</description>
-		</element>
-		<element name="xlink:href">
-			<label>Link href</label>
-			<description>Supplies the data that allows an XLink application to find a remote resource (or resource fragment) [W3C XLINK]</description>
-		</element>
-  	<!-- ==================================================== -->
-    <element name="hidden-elements">
-        <label>Hidden Elements</label>
-        <description>Child elements and attributes have been hidden because you do no have access to view those elements</description>
-    </element>
-    <!-- ==================================================== -->
-    <element name="gmx:name"> 
-        <label>Name</label> 
-        <description>Feature catalogue name</description> 
-    </element> 
-    <element name="gmx:scope"> 
-        <label>Scope</label> 
-        <description>Scope definition</description> 
-    </element> 
-    <element name="gmx:versionNumber"> 
-        <label>Version</label> 
-        <description>Catalogue version</description> 
-    </element> 
-    <element name="gmx:versionDate"> 
-        <label>Date</label> 
-        <description>Catalogue date</description> 
-    </element> 
-    <element name="gmx:fieldOfApplication"> 
-        <label>Field of application</label> 
-        <description>Field of application</description> 
-    </element>
-    <element name="gml:axis">
-        <label>Axis</label>
-    </element>
-    <element name="gml:axisAbbrev">
-        <label>Axis abbreviation</label>
-    </element>
-    <element name="gml:axisDirection">
-        <label>Axis direction</label>
-    </element>
-    <element name="gml:maximumValue">
-        <label>Maximum value</label>
-    </element>
-    <element name="gml:minimumValue">
-        <label>Minimum value</label>
-    </element>
-    <element name="gml:scope">
-        <label>Scope</label>
-    </element>
-    <element name="gml:VerticalCRS">
-        <label>Vertical CRS</label>
-    </element>
-    <element name="gml:remarks">
-        <label>Remarks</label>
-    </element>
-    <element name="gml:domainOfValidity">
-        <label>Domain of validity</label>
-    </element>
-    <element name="gml:verticalCS">
-        <label>Vertical CS</label>
-    </element>
-    <element name="gml:VerticalCS">
-        <label>Vertical CS</label>
-    </element>
-    <element name="gml:CoordinateSystemAxis">
-        <label>Coordinate system axis</label>
-    </element>
-    <element name="gml:rangeMeaning">
-        <label>Range meaning</label>
-    </element>
-    <element name="gml:verticalDatum">
-        <label>Vertical datum</label>
-    </element>
-    <element name="gml:VerticalDatum">
-        <label>Vertical datum</label>
-    </element>
-    <element name="gml:realizationEpoch">
-        <label>Realization epoch</label>
-    </element>
+	</element>
+	<element name="gco:CharacterString">
+		<label>Text</label>
+		<description />
+	</element>
+	<element name="gco:nilReason">
+		<label>Nil reason</label>
+		<description />
+	</element>
+	<element name="srv:DCPList">
+		<label>Distributed Computing Platforms list</label>
+	</element>
+	<element name="gmd:verticalCRS">
+		<label>Vertical CRS</label>
+		<description>Provides information about the origin from which the maximum and minimum elevation values are measured</description>
+	</element>
+	<element name="gmx:FileName">
+		<label>File name</label>
+		<description>File name and source URL.</description>
+	</element>
+	<element name="src">
+		<label>Source URL</label>
+		<description>URL of the document.</description>
+	</element>
+	<element name="gmx:Anchor">
+		<label>Anchor</label>
+		<description>Supports hyper-linking capabilities and ensures a web-like implementation of CharacterStrings</description>
+	</element>
+	<element name="xlink:href">
+		<label>Link href</label>
+		<description>Supplies the data that allows an XLink application to find a remote resource (or resource fragment) [W3C XLINK]</description>
+	</element>
+	<!-- ==================================================== -->
+	<element name="hidden-elements">
+		<label>Hidden Elements</label>
+		<description>Child elements and attributes have been hidden because you do no have access to view those elements</description>
+	</element>
+	<!-- ==================================================== -->
+	<element name="gmx:name">
+		<label>Name</label>
+		<description>Feature catalogue name</description>
+	</element>
+	<element name="gmx:scope">
+		<label>Scope</label>
+		<description>Scope definition</description>
+	</element>
+	<element name="gmx:versionNumber">
+		<label>Version</label>
+		<description>Catalogue version</description>
+	</element>
+	<element name="gmx:versionDate">
+		<label>Date</label>
+		<description>Catalogue date</description>
+	</element>
+	<element name="gmx:fieldOfApplication">
+		<label>Field of application</label>
+		<description>Field of application</description>
+	</element>
+	<element name="gml:axis">
+		<label>Axis</label>
+	</element>
+	<element name="gml:axisAbbrev">
+		<label>Axis abbreviation</label>
+	</element>
+	<element name="gml:axisDirection">
+		<label>Axis direction</label>
+	</element>
+	<element name="gml:maximumValue">
+		<label>Maximum value</label>
+	</element>
+	<element name="gml:minimumValue">
+		<label>Minimum value</label>
+	</element>
+	<element name="gml:scope">
+		<label>Scope</label>
+	</element>
+	<element name="gml:VerticalCRS">
+		<label>Vertical CRS</label>
+	</element>
+	<element name="gml:remarks">
+		<label>Remarks</label>
+	</element>
+	<element name="gml:domainOfValidity">
+		<label>Domain of validity</label>
+	</element>
+	<element name="gml:verticalCS">
+		<label>Vertical CS</label>
+	</element>
+	<element name="gml:VerticalCS">
+		<label>Vertical CS</label>
+	</element>
+	<element name="gml:CoordinateSystemAxis">
+		<label>Coordinate system axis</label>
+	</element>
+	<element name="gml:rangeMeaning">
+		<label>Range meaning</label>
+	</element>
+	<element name="gml:verticalDatum">
+		<label>Vertical datum</label>
+	</element>
+	<element name="gml:VerticalDatum">
+		<label>Vertical datum</label>
+	</element>
+	<element name="gml:realizationEpoch">
+		<label>Realization epoch</label>
+	</element>
 </labels>
