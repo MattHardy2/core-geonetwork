@@ -39,8 +39,32 @@
 					<xsl:copy-of select="gmd:parentIdentifier"/>
 				</xsl:when>
 			</xsl:choose>
+			<xsl:if test="not(gmd:contact)">
+				<gmd:contact>
+					<gmd:CI_ResponsibleParty>
+						<gmd:individualName>
+							<gco:CharacterString><xsl:value-of select="/root/env/user/username"/></gco:CharacterString>
+						</gmd:individualName>
+						<gmd:contactInfo>
+							<gmd:CI_Contact>
+								<gmd:address>
+									<gmd:CI_Address>
+										<gmd:electronicMailAddress>
+											<gco:CharacterString><xsl:value-of select="/root/env/user/email"/></gco:CharacterString>
+										</gmd:electronicMailAddress>
+									</gmd:CI_Address>
+								</gmd:address>
+							</gmd:CI_Contact>
+						</gmd:contactInfo>
+						<gmd:role>
+							<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact"/>
+						</gmd:role>
+					</gmd:CI_ResponsibleParty>
+				</gmd:contact>  
+			</xsl:if>
 			<xsl:apply-templates select="node()[not(self::gmd:language) and not(self::gmd:characterSet)]"/>
 		</xsl:copy>
+		
 	</xsl:template>
 
 
@@ -213,7 +237,10 @@
 			<xsl:copy-of select="gmd:protocol"/>
 			<xsl:copy-of select="gmd:applicationProfile"/>
 			<gmd:name>
-				<gmx:MimeFileType type="{$mimeType}">
+				<gmx:MimeFileType>
+					<xsl:attribute name="type">
+						<xsl:value-of select="$mimeType"/>
+					</xsl:attribute>
 					<xsl:value-of select="$fname"/>
 				</gmx:MimeFileType>
 			</gmd:name>
@@ -377,6 +404,10 @@
 			<xsl:with-param name="prefix" select="'gml'"/>
 		</xsl:call-template>
 	</xsl:template>
+
+<!-- ================================================================= -->
+	<!-- JRC changes -->
+
 
 <!-- ================================================================= -->
 	<!-- copy everything else as is -->

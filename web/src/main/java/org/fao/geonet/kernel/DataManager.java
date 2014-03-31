@@ -2765,7 +2765,16 @@ public class DataManager {
                 env.addContent(new Element("siteURL")   .setText(getSiteURL()));
                 Element system = settingMan.get("system", -1);
                 env.addContent(Xml.transform(system, appPath + Geonet.Path.STYLESHEETS+ "/xml/config.xsl"));
+                
+                //add user details
+                Element userel = new Element("user");
+                UserSession user = context.getUserSession();
+                userel.addContent(new Element("username").setText(user.getName() + " "  + user.getSurname()));
+                userel.addContent(new Element("email").setText(user.getEmailAddr()));
+                env.addContent(userel);
+                
                 result.addContent(env);
+                
                 // apply update-fixed-info.xsl
                 String styleSheet = getSchemaDir(schema) + Geonet.File.UPDATE_FIXED_INFO;
                 result = Xml.transform(result, styleSheet);
