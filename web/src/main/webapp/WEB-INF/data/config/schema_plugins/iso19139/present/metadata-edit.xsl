@@ -2377,7 +2377,7 @@
       <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>
 
-    <xsl:apply-templates mode="elementEP" select="gmd:contact|geonet:child[string(@name)='contact']">
+    <xsl:apply-templates mode="elementEP" select="gmd:contact">
       <xsl:with-param name="schema" select="$schema"/>
       <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>
@@ -2439,12 +2439,12 @@
       <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>
     
-    <xsl:apply-templates mode="elementEP" select="gmd:distributionInfo/gmd:MD_Distribution/gmd:distributor|gmd:distributionInfo/gmd:MD_Distribution/geonet:child[@name='distributor']">
+    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[string(@name)='pointOfContact']">
       <xsl:with-param name="schema" select="$schema"/>
       <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>
     
-    <xsl:apply-templates mode="elementEP" select="gmd:contact|geonet:child[string(@name)='contact']">
+    <xsl:apply-templates mode="elementEP" select="gmd:contact">
       <xsl:with-param name="schema" select="$schema"/>
       <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>
@@ -2616,8 +2616,14 @@
       <xsl:with-param name="schema" select="$schema"/>
       <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>
+   
+    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[string(@name)='pointOfContact']">
+      <xsl:with-param name="schema" select="$schema"/>
+      <xsl:with-param name="edit"   select="$edit"/>
+    </xsl:apply-templates>
     
-    <xsl:apply-templates mode="elementEP" select="gmd:contact|geonet:child[string(@name)='contact']">
+    
+    <xsl:apply-templates mode="elementEP" select="gmd:contact">
       <xsl:with-param name="schema" select="$schema"/>
       <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>
