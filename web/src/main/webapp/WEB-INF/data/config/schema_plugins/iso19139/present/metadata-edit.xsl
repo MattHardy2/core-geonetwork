@@ -2572,7 +2572,7 @@
       <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>
     
-    <xsl:apply-templates mode="elementEP" select="gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier|gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/geonet:child[string(@name)='referenceSystemIdentifier']">
+    <xsl:apply-templates mode="elementEP" select="gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier|geonet:child[string(@name)='referenceSystemInfo']">
       <xsl:with-param name="schema" select="$schema"/>
       <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>

@@ -1367,6 +1367,59 @@
 		element is similar to Topic Category but the Keyword Value is not fixed to a high-level code list
 		provided by ISO, instead metadata creators are free to enter more appropriate terms to describe 
 		the data resource.</description>
+		<help>&lt;p&gt;Ideally we should all use the same terms when tagging our data. In this way we prevent
+		problems related to synonyms, antonyms, different spellings etc. For this reason we strongly 
+		recommend to only select Keyword Values from a collection of terms, linked and predefined: 
+		the General Multilingual Environmental Thesaurus (GEMET) of the European Environment Information and 
+		Observation Network (EIONET).&lt;/p&gt;&lt;p&gt;From GEMET, to be INSPIRE compliant, at least one of 
+		the &lt;b&gt;INSPIRE Spatial Data Themes&lt;/b&gt; must be selected as a keyword. This selection 
+		should be done by a group of experts for each category coordinated by the relevant thematic unit.
+		The INSPIRE Spatial Data themes can be browsed in GEMET at:&lt;/p&gt;&lt;p&gt; 
+		&lt; a href="http://www.eionet.europa.eu/gemet/inspire_themes?langcode=en" &gt;
+		http://www.eionet.europa.eu/gemet/inspire_themes?langcode=en &lt;/a&gt; &lt;/p&gt;&lt;p&gt;
+		For your convenience we list all themes here in alphabetical order:&lt;ul&gt;
+		&lt;li&gt;Addresses&lt;/li&gt;
+		&lt;li&gt;Administrative units&lt;/li&gt;
+		&lt;li&gt;Agricultural and aquaculture facilities&lt;/li&gt;
+		&lt;li&gt;Area management/restriction/regulation zones and reporting units&lt;/li&gt;
+		&lt;li&gt;Atmospheric conditions&lt;/li&gt;
+		&lt;li&gt;Bio-geographical regions&lt;/li&gt;
+		&lt;li&gt;Buildings&lt;/li&gt;
+		&lt;li&gt;Cadastral parcels&lt;/li&gt;
+		&lt;li&gt;Coordinate reference systems&lt;/li&gt;
+		&lt;li&gt;Elevation&lt;/li&gt;
+		&lt;li&gt;Energy resources&lt;/li&gt;
+		&lt;li&gt;Environmental monitoring facilities&lt;/li&gt;
+		&lt;li&gt;Geographical grid systems&lt;/li&gt;
+		&lt;li&gt;Geographical names&lt;/li&gt;
+		&lt;li&gt;Geology&lt;/li&gt;
+		&lt;li&gt;Habitats and biotopes&lt;/li&gt;
+		&lt;li&gt;Human health and safety&lt;/li&gt;
+		&lt;li&gt;Hydrography&lt;/li&gt;
+		&lt;li&gt;Land cover&lt;/li&gt;
+		&lt;li&gt;Land use&lt;/li&gt;
+		&lt;li&gt;Meteorological geographical features&lt;/li&gt;
+		&lt;li&gt;Mineral resources&lt;/li&gt;
+		&lt;li&gt;Natural risk zones&lt;/li&gt;
+		&lt;li&gt;Oceanographic geographical features&lt;/li&gt;
+		&lt;li&gt;Orthoimagery&lt;/li&gt;
+		&lt;li&gt;Population distribution — demography&lt;/li&gt;
+		&lt;li&gt;Production and industrial facilities&lt;/li&gt;
+		&lt;li&gt;Protected sites&lt;/li&gt;
+		&lt;li&gt;Sea regions&lt;/li&gt;
+		&lt;li&gt;Soil&lt;/li&gt;
+		&lt;li&gt;Species distribution&lt;/li&gt;
+		&lt;li&gt;Statistical units&lt;/li&gt;
+		&lt;li&gt;Transport networks&lt;/li&gt;
+		&lt;li&gt;Utility and government services&lt;/li&gt;
+		&lt;/ul&gt; &lt;/p&gt;&lt;p&gt;It is also suggested to also choose a minimum of two additional 
+		keywords from the GEMET Concept list which can be found at: &lt;/p&gt;&lt;p&gt;
+		 http://www.eionet.europa.eu/gemet. &lt;/p&gt;</help>
+ 		<example>&lt;p&gt;Example for INSPIRE Spatial Data Theme: Orthoimagery&lt;/p&gt;
+				&lt;p&gt;Example for GEMET Concept: fish stock&lt;/p&gt;</example>
+		<inspireInfo>Other comments For more information on the INSPIRE Spatial Data Themes, please visit 
+		the INSPIRE Website (http://inspire.jrc.ec.europa.eu/index.cfm) and the INSPIRE Registry 
+		(http://inspire-registry.jrc.ec.europa.eu/registers/FCD/items)</inspireInfo>
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:language" context="gmd:MD_Metadata" id="3.0">
@@ -2399,7 +2452,7 @@
 		<description>Name of the formally registered thesaurus or a similar authoritative source of
             keywords</description>
 	</element>
-	<element name="gmd:title" id="360.0">
+	<element name="gmd:citation" id="360.0" context="gmd:MD_DataIdentification">
 		<label>Resource Title</label>
 		<description>&lt;p&gt;The title is the most informative element of your metadata record. When done correctly, 
 		with one glance the person searching for data understands which dataset he or she has in front of him.&lt;/p&gt;		
@@ -2419,6 +2472,10 @@
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:title" id="507.0" context="gmd:MD_Legislation">
+		<label>Title</label>
+		<description>Reference to legal title</description>
+	</element>
+	<element name="gmd:title" id="507.0">
 		<label>Title</label>
 		<description>Reference to legal title</description>
 	</element>

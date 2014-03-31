@@ -74,15 +74,15 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="EX_BoundingPolygon" type="gmd:EX_BoundingPolygon_Type" substitutionGroup="gmd:AbstractEX_GeographicExtent"/>
+	<!-- <xs:element name="EX_BoundingPolygon" type="gmd:EX_BoundingPolygon_Type" substitutionGroup="gmd:AbstractEX_GeographicExtent"/> -->
 	<!-- ........................................................................ -->
-	<xs:complexType name="EX_BoundingPolygon_PropertyType">
+	<!-- <xs:complexType name="EX_BoundingPolygon_PropertyType">
 		<xs:sequence minOccurs="0">
 			<xs:element ref="gmd:EX_BoundingPolygon"/>
 		</xs:sequence>
 		<xs:attributeGroup ref="gco:ObjectReference"/>
 		<xs:attribute ref="gco:nilReason"/>
-	</xs:complexType>
+	</xs:complexType> -->
 	<!-- =========================================================================== -->
 	<xs:complexType name="EX_Extent_Type">
 		<xs:annotation>
@@ -123,15 +123,15 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="AbstractEX_GeographicExtent" type="gmd:AbstractEX_GeographicExtent_Type" abstract="true"/>
+	<!-- <xs:element name="AbstractEX_GeographicExtent" type="gmd:AbstractEX_GeographicExtent_Type" abstract="true"/> -->
 	<!-- ........................................................................ -->
-	<xs:complexType name="EX_GeographicExtent_PropertyType">
+<!-- 	<xs:complexType name="EX_GeographicExtent_PropertyType">
 		<xs:sequence minOccurs="0">
 			<xs:element ref="gmd:AbstractEX_GeographicExtent"/>
 		</xs:sequence>
 		<xs:attributeGroup ref="gco:ObjectReference"/>
 		<xs:attribute ref="gco:nilReason"/>
-	</xs:complexType>
+	</xs:complexType> -->
 	<!-- =========================================================================== -->
 	<xs:complexType name="EX_GeographicBoundingBox_Type">
 		<xs:annotation>
