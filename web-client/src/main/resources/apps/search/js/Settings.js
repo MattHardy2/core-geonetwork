@@ -32,7 +32,7 @@ GeoNetwork.searchDefault = {
 GeoNetwork.advancedFormButton = true;
 
 GeoNetwork.Settings.editor = {
-    defaultViewMode : 'simple',
+    defaultViewMode : 'ultralight',
     // Define which edit mode to use by default
     // according to metadata schema
     editMode: {
@@ -104,6 +104,6 @@ GeoNetwork.MapModule = true;
 GeoNetwork.ProjectionList = [['EPSG:4326', 'WGS84 (lat/lon)']];
 GeoNetwork.WMSList = [['Geoserver', 'http://localhost/geoserver/wms?']];
 
-GeoNetwork.defaultViewMode = 'view-simple';
+GeoNetwork.defaultViewMode = 'ultralight';
 
 Ext.BLANK_IMAGE_URL = '../js/ext/resources/images/default/s.gif';

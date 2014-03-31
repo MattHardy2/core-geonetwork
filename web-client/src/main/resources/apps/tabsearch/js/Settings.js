@@ -33,7 +33,7 @@ GeoNetwork.searchDefault = {
 GeoNetwork.advancedFormButton = true;
 
 GeoNetwork.Settings.editor = {
-    defaultViewMode : 'simple',
+    defaultViewMode : 'ultralight',
     editHarvested: false
 //    defaultViewMode : 'inspire'
 };
@@ -86,6 +86,6 @@ GeoNetwork.MapModule = true;
 GeoNetwork.ProjectionList = [['EPSG:4326', 'WGS84 (lat/lon)']];
 GeoNetwork.WMSList = [['Geoserver', 'http://vap-xgeodev.jrc.it/geoserver/wms?']];
 
-GeoNetwork.defaultViewMode = 'view-simple';
+GeoNetwork.defaultViewMode = 'ultralight';
 
 Ext.BLANK_IMAGE_URL = '../js/ext/resources/images/default/s.gif';
