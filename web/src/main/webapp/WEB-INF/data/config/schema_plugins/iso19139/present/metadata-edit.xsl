@@ -2362,25 +2362,58 @@
     <xsl:param name="edit"/>
     <xsl:param name="flat"/>
     
-    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
-    
-    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
-    
-    <xsl:apply-templates mode="elementEP" select="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage|geonet:child[string(@name)='distributionInfo']">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
+        <xsl:call-template name="complexElementGuiWrapper">
+	      <xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_DataIdentification']/label)"/>
+          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_DataIdentification']/label"/>
+          <xsl:with-param name="content">
 
-    <xsl:apply-templates mode="elementEP" select="gmd:contact">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		    
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+          </xsl:with-param>
+          <xsl:with-param name="schema" select="$schema"/>
+          <xsl:with-param name="group" select="/root/gui/strings/metadata"/>
+          <xsl:with-param name="edit" select="$edit"/>
+        </xsl:call-template>
+    
+        <xsl:call-template name="complexElementGui">
+	      <xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Distribution']/label)"/>
+          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Distribution']/label"/>
+          <xsl:with-param name="content">
+		    <xsl:apply-templates mode="elementEP" select="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		   </xsl:with-param>
+          <xsl:with-param name="addXmlFragmentSubTemplate">
+          	<xsl:variable name="function"><xsl:text>.addRelation</xsl:text></xsl:variable>
+          	<xsl:variable name="query"><xsl:text>'div.linkPanel'</xsl:text></xsl:variable>
+          	<xsl:variable name="type"><xsl:text>'onlinesrc'</xsl:text></xsl:variable>
+         	<xsl:value-of select="concat('javascript:','Ext.getCmp(Ext.query(',$query,')[0].id)',$function,'(',$type,')')"/>
+          </xsl:with-param>
+          <xsl:with-param name="schema" select="$schema"/>
+          <xsl:with-param name="edit" select="$edit"/>
+        </xsl:call-template>
+        
+        <xsl:call-template name="complexElementGuiWrapper">
+	      <xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:contact'][@context='gmd:MD_MaintenanceInformation']/label)"/>
+          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:contact']/label"/>
+          <xsl:with-param name="content">
+	  	  	<xsl:apply-templates mode="elementEP" select="gmd:contact">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+          </xsl:with-param>
+          <xsl:with-param name="schema" select="$schema"/>
+          <xsl:with-param name="group" select="/root/gui/strings/metadata"/>
+          <xsl:with-param name="edit" select="$edit"/>
+        </xsl:call-template>
     
   </xsl:template>
      <!-- ============================================================================= -->
@@ -2399,35 +2432,59 @@
     <xsl:param name="edit"/>
     <xsl:param name="flat"/>
     
-    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
+        <xsl:call-template name="complexElementGuiWrapper">
+	      <xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_DataIdentification']/label)"/>
+          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_DataIdentification']/label"/>
+          <xsl:with-param name="content">
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		    
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		    
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[@name='descriptiveKeywords' and @prefix='gmd']">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		    
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[@name='extent' and @prefix='gmd']">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		    
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+          </xsl:with-param>
+          <xsl:with-param name="schema" select="$schema"/>
+          <xsl:with-param name="group" select="/root/gui/strings/metadata"/>
+          <xsl:with-param name="edit" select="$edit"/>
+        </xsl:call-template>
     
-    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
-    
-    <xsl:apply-templates mode="elementEP" select="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage|geonet:child[string(@name)='distributionInfo']">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
-    
-    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[@name='descriptiveKeywords' and @prefix='gmd']">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
-    
-    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[@name='extent' and @prefix='gmd']">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
-    
-    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
+		    
+       <xsl:call-template name="complexElementGui">
+      	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Distribution']/label)"/>
+         <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Distribution']/label"/>
+         <xsl:with-param name="content">
+		    <xsl:apply-templates mode="elementEP" select="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage|geonet:child[string(@name)='distributionInfo']">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+	    </xsl:with-param>
+         <xsl:with-param name="addXmlFragmentSubTemplate">
+         	<xsl:variable name="function"><xsl:text>.addRelation</xsl:text></xsl:variable>
+         	<xsl:variable name="query"><xsl:text>'div.linkPanel'</xsl:text></xsl:variable>
+         	<xsl:variable name="type"><xsl:text>'onlinesrc'</xsl:text></xsl:variable>
+        	<xsl:value-of select="concat('javascript:','Ext.getCmp(Ext.query(',$query,')[0].id)',$function,'(',$type,')')"/>
+         </xsl:with-param>
+         <xsl:with-param name="schema" select="$schema"/>
+         <xsl:with-param name="edit" select="$edit"/>
+       </xsl:call-template>
     
     <xsl:apply-templates mode="elementEP" select="gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage|gmd:dataQualityInfo/gmd:DQ_DataQuality/geonet:child[string(@name)='lineage']">
       <xsl:with-param name="schema" select="$schema"/>

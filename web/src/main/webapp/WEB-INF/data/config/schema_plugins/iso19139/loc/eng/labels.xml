@@ -1289,6 +1289,7 @@
 			&lt;li&gt;series&lt;/li&gt;
 		 &lt;/ul&gt;
 		</inspireInfo>
+		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:hierarchyLevelName" id="7.0">
 		<label>Hierarchy level name</label>
@@ -1543,7 +1544,7 @@
 		registration&lt;/li&gt;
 		&lt;li&gt;Function – search&lt;/li&gt;
 		&lt;/ul&gt;&lt;/p&gt;</example>
-		<condition>mandatory</condition>
+		<condition>conditional</condition>
 	</element>
 	<element name="gmd:maintenanceAndUpdateFrequency" id="143.0">
 		<label>Maintenance and update frequency</label>
@@ -2474,6 +2475,25 @@
 	<element name="gmd:title" id="507.0" context="gmd:MD_Legislation">
 		<label>Title</label>
 		<description>Reference to legal title</description>
+	</element>
+	<element name="gmd:title" id="507.0" context="gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
+		<label>Resource Title</label>
+		<description>&lt;p&gt;The title is the most informative element of your metadata record. When done correctly, 
+		with one glance the person searching for data understands which dataset he or she has in front of him.&lt;/p&gt;		
+		&lt;p&gt;In performing a text search in a catalogue client, the highest priority will often be given to results 
+		that find the desired search text in the title.&lt;/p&gt;</description>
+		<inspireInfo>inspire info</inspireInfo>
+		<help>
+		&lt;p&gt;Please spend some time thinking about the title.&lt;/p&gt;
+		&lt;p&gt;It must be concise and to the point. It should not contain unexplained acronyms. 
+		We suggest a maximum length of 250 characters. &lt;/p&gt;
+		&lt;p&gt;Please be as close as possible to the original title of the resource, in the sense of the 
+		‘official naming’.&lt;/p&gt;
+		&lt;p&gt;If this data is part of a larger project, you might indicate the Project at the end of the 
+		title, in brackets. In case of Project names, abbreviations are allowed, as long as the rest of the 
+		title follows the guidelines above and the abbreviation is spelled out immediately in the abstract.&lt;/p&gt; </help>
+		<example>Remotely sensed imagery, a series of individual multispectral orthorectified scenes (IMAGE 2000)</example>
+		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:title" id="507.0">
 		<label>Title</label>
