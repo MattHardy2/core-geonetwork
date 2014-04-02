@@ -2541,11 +2541,6 @@
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
-		    
-		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification">
-		      <xsl:with-param name="schema" select="$schema"/>
-		      <xsl:with-param name="edit"   select="$edit"/>
-		    </xsl:apply-templates>
     
 		    <xsl:apply-templates mode="iso19139" select="gmd:language">
 		      <xsl:with-param name="schema" select="$schema"/>
@@ -2662,10 +2657,12 @@
       	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:topicCategory']/label)"/>
          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:topicCategory']/label"/>
          <xsl:with-param name="content">
-		    <xsl:apply-templates mode="elementEP" select="gmd:topicCategory|geonet:child[string(@name)='topicCategory']">
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:topicCategory|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[string(@name)='topicCategory']">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>  
+		    
+		   
 		 </xsl:with-param>
          <xsl:with-param name="schema" select="$schema"/>
          <xsl:with-param name="edit" select="$edit"/>
