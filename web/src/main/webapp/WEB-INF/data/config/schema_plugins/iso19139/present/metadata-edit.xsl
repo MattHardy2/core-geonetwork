@@ -2383,10 +2383,11 @@
         </xsl:call-template>
     
         <xsl:call-template name="complexElementGui">
-	      <xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Distribution']/label)"/>
-          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Distribution']/label"/>
+	      <xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:onLine']/label)"/>
+          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:onLine']/label"/>
           <xsl:with-param name="content">
-		    <xsl:apply-templates mode="elementEP" select="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage">
+          
+		    <xsl:apply-templates mode="elementEP" select="gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage/gmd:URL">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
@@ -2403,7 +2404,7 @@
         
         <xsl:call-template name="complexElementGuiWrapper">
 	      <xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:contact'][@context='gmd:MD_MaintenanceInformation']/label)"/>
-          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:contact']/label"/>
+          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:contact'][@context='gmd:MD_MaintenanceInformation']/label"/>
           <xsl:with-param name="content">
 	  	  	<xsl:apply-templates mode="elementEP" select="gmd:contact">
 		      <xsl:with-param name="schema" select="$schema"/>
@@ -2546,13 +2547,8 @@
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
-    
-		    <xsl:apply-templates mode="iso19139" select="gmd:characterSet|geonet:child[string(@name)='characterSet']">
-		      <xsl:with-param name="schema" select="$schema"/>
-		      <xsl:with-param name="edit"   select="$edit"/>
-		    </xsl:apply-templates>
 		    
-		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:characterSet">
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:characterSet|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[string(@name)='characterSet']">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
@@ -2669,10 +2665,19 @@
        </xsl:call-template>
     
     
-    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[@name='descriptiveKeywords' and @prefix='gmd']">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
+		    
+       <xsl:call-template name="complexElementGui">
+      	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:descriptiveKeywords']/label)"/>
+         <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:descriptiveKeywords']/label"/>
+         <xsl:with-param name="content">
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[@name='descriptiveKeywords' and @prefix='gmd']">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		 </xsl:with-param>
+         <xsl:with-param name="schema" select="$schema"/>
+         <xsl:with-param name="edit" select="$edit"/>
+       </xsl:call-template>
     
 	   <xsl:call-template name="complexElementGui">
 	  	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:extent'][@context='gmd:MD_DataIdentification']/label)"/>
