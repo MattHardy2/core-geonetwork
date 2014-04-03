@@ -2581,6 +2581,17 @@
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
 		    
+    
+		    <xsl:apply-templates mode="iso19139" select="gmd:fileIdentifier">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+    
+		    <xsl:apply-templates mode="iso19139" select="gmd:parentIdentifier">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		    
 		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:characterSet|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[string(@name)='characterSet']">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>

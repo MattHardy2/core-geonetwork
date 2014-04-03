@@ -1295,8 +1295,38 @@
 		<description>Text description of the illustration</description>
 	</element>
 	<element name="gmd:fileIdentifier" id="2.0">
-		<label>File identifier</label>
-		<description>Unique identifier for this metadata file</description>
+		<label>Unique Resource Identifier</label>
+		<description>&lt;p&gt;&lt;b&gt;Why do we need a URI?&lt;/b&gt; It is very important to have a value that can uniquely 
+		identify reference data. This is done through the Unique Resource Identifier (URI), a value that 
+		only exists once, like your Codice Fiscale. This value should not change, as long as the reference 
+		data it identifies exists. Only a new version of a dataset with its own identity might get a new 
+		identifier (for example IMAGE 2000 and IMAGE 2006). The URI is also used to determine relationships 
+		between reference data and the services that allow a user to view or to download the reference 
+		data: the service will use the reference data URIs to list all the data it provides access to.
+		&lt;/p&gt;&lt;p&gt;&lt;b&gt;Do I need a different URI for my local copy of reference data?&lt;/b&gt; No. The URI 
+		describes the resource, not a copy of it. The URI can be best compared to an ISBN of a book: 
+		Even if there are multiple copies, they all refer to the same resource, and they all have the 
+		same ISBN. Only if I modify the copy, and redistribute this modified copy to others, then I might 
+		need to register a new reference dataset which gets a new URI, and, consequently, a new Metadata 
+		record. Can the same resource have multiple URIs? Yes. The existence of multiple identifiers is 
+		a fact of life. For example, a person can have multiple tax identification numbers in different 
+		countries (e.g. a German tax identification number in Germany, and a Codice Fiscale in Italy), 
+		each of which can be used to uniquely identify him.&lt;/p&gt;&lt;p&gt;&lt;b&gt;What is the difference 
+		between a URI and a URL?&lt;/b&gt; While URI stands for Identifier, a URL stands for Location. URLs are known 
+		to all of us browsing through the web. In the context of Linked Data there is a general movement 
+		towards using URLs as URIs, which is something that we support. Note, just using a URL as an 
+		identifier means you can use a real location, but you do not have to. After all here we use it 
+		only as an identifier.&lt;/p&gt;&lt;p&gt;How to build a URI? We distinguish locally and globally
+		unique URIs.&lt;ul&gt;&lt;li&gt;A locally unique URI is a build through an identifier and a namespace. 
+		The identifier is unique e.g. within your action, unit or institution, and the namespace in this case 
+		ensures that in combination, namespace and identifier are unique. &lt;/li&gt;&lt;li&gt;A globally unique 
+		URI is a single string (a set of characters) that identifies the resource globally without using the 
+		help of a namespace. There are two options to generating a globally Unique Resource Identifier:&lt;ul&gt;
+		&lt;li&gt;Using a generated Universally Unique Identifier (UUID), provided through an algorithm that 
+		ensures uniqueness. There are online tools users can use to generate such a UUID. &lt;/li&gt;&lt;li&gt;
+		Using a URL following a predefined pattern and well-defined structure that ensures uniqueness.&lt;/li&gt;
+		&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</description>
+		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:fileName" id="49.0">
 		<label>File name</label>
@@ -2233,8 +2263,33 @@
 	</element>
 	<element name="gmd:parentIdentifier" id="5.0">
 		<label>Parent identifier</label>
-		<description>File identifier of the metadata to which this metadata is a subset
-            (child)</description>
+		<description>&lt;p&gt;This element allows to establish relationships between metadata records, and 
+		thus also between the resources that the records describe. Example relationships are between a 
+		dataset and a dataset series (see example below), but also between a dataset and a complex 
+		information system.&lt;/p&gt;&lt;p&gt;For example, if you create a metadata record for a dataset 
+		that is part of a series, then the metadata record of the dataset could contain a pointer to the 
+		series to state ‘this is the series I am part of’. In other words, the dataset (child) has to point 
+		to the series (parent). This can be done through the element Parent Identifier, which is not an 
+		INSPIRE element, but helps enormously when dealing with datasets and data series.&lt;/p&gt;
+		&lt;p&gt;Imagine the following situation: In a catalogue there is a Metadata Record for a series 
+		of datasets IMAGE2000 series of individual orthorectified scenes - multispectral. 
+		In the same catalogue there is also a metadata record for each of the more than 400 single images. 
+		Currently the catalogue providers are hiding the 400 metadata records describing the images. The 
+		reason is simple: Imagine you search for Orthoimagery, and you get back more than 400 results! 
+		The records on Image 2000 clutter up the results page and you will not be able to find the 
+		information you were really looking for, e.g. the Image 2000 Mosaic, which the catalogue also 
+		contains a metadata record for. &lt;/p&gt;&lt;p&gt;If in the future the children could point 
+		to their parent, i.e. the Metadata records for datasets could point to the corresponding series, 
+		a catalogue client would be able to display the results in a hierarchic manner: First it displays 
+		only the data series, and only on request does it display also the metadata records for datasets 
+		that are contained in this series.&lt;/p&gt;&lt;p&gt;Please note that Parent Identifier is an additional element, it is not part 
+		of the required INSPIRE Metadata. &lt;/p&gt;&lt;p&gt;We are currently working on technical 
+		solutions that support establishing this relationship: the RDSI editor now provides the possibility 
+		to establish the relationship between metadata records, by using the additional ISO element 
+		‘Parent Identifier’. This, however, means you will have to create both records, the one 
+		of the parent and the child, in the RDSI metadata editor.&lt;/p&gt;</description>
+		<help>Enter the identifier of the series that your dataset is a part of.</help>
+		<condition>conditional</condition>
 	</element>
 	<element name="gmd:pass" id="132.0">
 		<label>Pass</label>
