@@ -88,8 +88,34 @@
 	</element>
 	<element name="gmd:CI_Citation" id="359.0">
 		<label>Citation</label>
-		<description>Standardised resource reference</description>
-		<_condition>Use obligation/condition from referencing object</_condition>
+		<description>&lt;p&gt;If keyword Values originate from a controlled vocabulary (like GEMET) then details 
+		about that vocabulary are required.&lt;/p&gt;&lt;p&gt; Knowing the controlled vocabulary allows 
+		users to fully understand the context of the keyword, as the controlled vocabulary often also 
+		provides a definition of the term. If, like in case of GEMET, the controlled vocabulary is a 
+		multilingual thesaurus, then it is even possible to request a translation of the keyword. Also, as 
+		definitions might change, it is important to add which version of the thesaurus the keyword was 
+		taken from.&lt;/p&gt;&lt;p&gt;As at least one of the INSPIRE Spatial Data Themes must be selected as
+		a keyword and we strongly recommend using only the GEMET Concept list for other keywords, examples 
+		for these are provided below.&lt;/p&gt;&lt;p&gt;Date is in the recommended format YYYY-MM-DD. &lt;/p&gt;</description>
+		<help>>&lt;p&gt;None or one for each keyword but many keywords can belong to one Originating 
+		Controlled Vocabulary.&lt;/p&gt;&lt;p&gt;The Originating Controlled Vocabulary consists of a Title, 
+		Date Type and Date.&lt;/p&gt;&lt;p&gt;Title is free text.&lt;/p&gt;&lt;p&gt;Date Type is taken from 
+		a code list provided by ISO 19115 CI_DateTypeCode:&lt;/p&gt;&lt;ul&gt;
+		&lt;li&gt;creation&lt;/li&gt;
+		&lt;li&gt;publication&lt;/li&gt;
+		&lt;li&gt;revision&lt;/li&gt;
+		&lt;/ul&gt;&lt;p&gt;Date is a valid date.&lt;/p&gt;</help>
+		<example>&lt;p&gt;&lt;b&gt;INSPIRE Spatial Data Theme:&lt;/b&gt;
+		&lt;ul&gt;&lt;li&gt;Title - GEMET - INSPIRE themes, version 1.0&lt;/li&gt;
+		&lt;li&gt;Date Type - publication&lt;/li&gt;
+		&lt;li&gt;Date – 2011-09-08&lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;
+		&lt;p&gt;&lt;b&gt;GEMET Concepts:&lt;/b&gt;
+		&lt;ul&gt;&lt;li&gt;Title - GEMET - Concepts, version 3.0&lt;/li&gt;
+		&lt;li&gt;Date Type - publication&lt;/li&gt;
+		&lt;li&gt;Date – 2011-07-13&lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;</example>
+		<condition>conditional</condition>
 	</element>
 	<element name="gmd:CI_Contact" id="387.0">
 		<label>Contact</label>
@@ -154,9 +180,8 @@
             values) against a specified acceptable conformance quality level</description>
 	</element>
 	<element name="gmd:DQ_DataQuality" id="78.0">
-		<label>Data quality</label>
-		<description>Quality information for the data specified by a data quality
-            scope</description>
+		<label>Quality and Validity of the Resource</label>
+		<description>Elements that will help the user understand the quality of the available data resource.</description>
 	</element>
 	<element name="gmd:DQ_DomainConsistency" id="113.0">
 		<label>Domain consistency</label>
@@ -225,7 +250,28 @@
 	</element>
 	<element name="gmd:EX_GeographicBoundingBox" id="343.0">
 		<label>Geographic bounding box</label>
-		<description>Geographic position of the dataset</description>
+		<description>&lt;p&gt;Defining the co-ordinates of a rectangle that determine the area on a map that relates 
+		to the resource allows metadata discovery by geographical area.&lt;/p&gt;
+		&lt;p&gt;Bounding box:&lt;ul&gt;&lt;li&gt;North: South bounding latitude &lt;= North bounding 
+		latitude &lt;= 90.00 &lt;/li&gt;
+		&lt;li&gt;East: - 180.00 &lt;= value &lt;= 180.00 &lt;/li&gt;
+		&lt;li&gt;South: - 90.00 &lt;= South bounding latitude &lt;= North bounding latitude &lt;/li&gt;
+		&lt;li&gt;West: - 180.00 &lt;= value &lt;= 180.00&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</description>
+		<help>&lt;p&gt;To help you find the co-ordinates for your data resource we have produced a list of
+		the bounding-boxes for all European countries. See Appendix II for details of this list and an explanation on 
+		where it came from.&lt;/p&gt;&lt;p&gt;If the data Geographic Bounding Box for the data resource is 
+		within continental Europe then the co-ordinates entered must be based on the European Terrestrial 
+		Reference System 1989 (ETRS89) and provided in decimal degrees with precision of at least 2 
+		decimals. Outside continental Europe co-ordinates based on any geodetic coordinate reference 
+		system with the Greenwich Prime Meridian (such as the World Geodetic System, WGS84) are acceptable.
+		 Coordinates should be as well provided in decimal degrees with precision of at least 
+		 2 decimals.&lt;/p&gt;</help>
+		<example>&lt;p&gt;Bounding Box for the UK:&lt;ul&gt;&lt;li&gt;North Bound Latitude: 60.84&lt;/li&gt;
+		&lt;li&gt;East Bound Latitude: 1.76&lt;/li&gt;
+		&lt;li&gt;South Bound Latitude: 49.88&lt;/li&gt;
+		&lt;li&gt;West Bound Latitude: -8.62&lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;</example>
+		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:EX_GeographicDescription" id="348.0">
 		<label>Geographic description</label>
@@ -237,7 +283,29 @@
 	</element>
 	<element name="gmd:EX_TemporalExtent" id="350.0">
 		<label>Temporal Extent</label>
-		<description>Time period covered by the content of the dataset</description>
+		<description>&lt;p&gt;This is the time period covered by the content of the data resource. For certain data 
+		such as Moderate Resolution Imaging Spectroradiometer (MODIS) data it is most important to 
+		understand for which time period this information is available. Other examples are sensor data 
+		for meteorological parameters and model results that provide time series with a certain temporal 
+		extent.&lt;/p&gt;</description>
+		<help>&lt;p&gt;The Temporal Extent consists of a Start Date and an End Date. Start Date 
+		and End Date are valid dates.&lt;/p&gt;&lt;p&gt;Please do not express false accuracy in the sense of more 
+		precision than the data contains. Depending on the precision you want to express, you can leave out 
+		elements of the representation, such as: &lt;/p&gt;&lt;ul&gt;
+		&lt;li&gt;YYYY-MM. To express only the month &lt;/li&gt;
+		&lt;li&gt;YYYY. To express only the year&lt;/li&gt;
+		&lt;/ul&gt;&lt;p&gt;Additionally, we also allow for an indeterminate end date: If, for example, a 
+		data series is updated every day with the latest information then the day after you have created 
+		your metadata record it will be immediately out of date. For this reason a time period which has an 
+		end position of indeterminate value ‘now’ is valid.&lt;/p&gt;</help>
+		<example>&lt;p&gt;Start Date - 2010-01-15&lt;/p&gt;&lt;p&gt;End Date – 2010-12-15&lt;/p&gt;&lt;p&gt;
+		Start Date - 2010-01-15&lt;/p&gt;&lt;p&gt;End Date - now&lt;/p&gt;&lt;p&gt;Other permissible date 
+		formats:&lt;/p&gt;&lt;ul&gt;
+		&lt;li&gt;2005-01-15T09:10:00&lt;/li&gt;
+		&lt;li&gt;2009&lt;/li&gt;
+		&lt;li&gt;2005-06&lt;/li&gt;
+		&lt;/ul&gt;</example>
+		<condition>conditional</condition>
 	</element>
 	<element name="gmd:EX_VerticalExtent" id="354.0">
 		<label>Vertical extent</label>
@@ -253,8 +321,31 @@
 	</element>
 	<element name="gmd:LI_Lineage" id="82.0">
 		<label>Lineage</label>
-		<description>Information about the events or source data used in constructing the data
-            specified by the scope or lack of knowledge about lineage</description>
+		<description>This element contains information on how the data resource was created, the source data
+		used, the main steps and transformations that took place in constructing the actual product from 
+		the source data. This is very useful for a user in determining its fitness for purpose.</description>
+		<help>&lt;p&gt;Include, where applicable, statements on the following (in the given order):&lt;/p&gt;
+		&lt;ul&gt;&lt;li&gt;Source material and providers&lt;/li&gt;
+		&lt;li&gt;Process history, transformations undergone by the data from source to the actual product&lt;/li&gt;
+		&lt;li&gt;Method of updating, how to identify the current version and any retired versions&lt;/li&gt;
+		&lt;li&gt;Data validation and quality assurance: Known issues with the dataset should be mentioned.&lt;/li&gt;
+		&lt;/ul&gt;&lt;p&gt;The Lineage should be a clear and concise statement that avoids acronyms 
+		(if you use them, explain them).&lt;/p&gt;</help>
+		<example>&lt;p&gt;(NOTE Here the data sources are still missing) &lt;/p&gt;
+		&lt;p&gt;The European mosaic is a multi-purpose and multi-scale product. To achieve this, 
+		technical specifications were defined to allow implementation of different mosaic types, 
+		based on specific user requirements. All bands were re-projected from the national projection 
+		systems to a European representation, in full resolution. The image re-projection is based on 
+		three sets of parameters: Map projection, Spheroid and Datum (7term Bursa-Wolf or 3 term 
+		Molodensky transformation according to the datum definition available for each country). 
+		All scenes orthorectified into national projection system were re-projected into geographic 
+		coordinates according to the ETRS89 specification (ETRS89 stands for European Terrestrial 
+		Reference System 1989). The re-projected pixel size is 0.0002300 deg for the multispectral 
+		bands. Re-projection of raster data to geographic coordinates implicates non-square image 
+		pixel with variable pixel size, when projected into plain and expressed in meters. 
+		Full details on the IMAGE2000 Products and Method scan be found at: 
+		http://image2000.jrc.ec.europa.eu/reports/image2000_products_and_methods.pdf&lt;/p&gt;</example>
+		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:LI_ProcessStep" id="86.0">
 		<label>Process step</label>
@@ -718,14 +809,48 @@
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:contact" id="8.0" context="gmd:MD_Metadata">
+		<label>Responsible Party</label>
+		<description>&lt;p&gt;If users have any questions relating to the resource found they need 
+		information on who to contact and how they can be contacted.&lt;/p&gt;&lt;p&gt;Searching via this 
+		field allows users to immediately look for or filter data available from JRC, from EEA or from 
+		EUROSTAT. Thus, being restrictive on the names to be used allows us to be much more effective 
+		when performing a search.&lt;/p&gt;</description>
+		<help>&lt;p&gt;The Responsible Party consists of an Organisation Name and an Email Address.
+		&lt;/p&gt;&lt;p&gt;Organisation Name is free text.&lt;/p&gt;&lt;p&gt;Email Address must be of 
+		valid email format.&lt;/p&gt;&lt;p&gt;Fill in each of the organisations responsible for the 
+		resource. &lt;/p&gt;&lt;p&gt;The name of the organisation should be given in full, without 
+		abbreviations. These names should come from a common codelist to be agreed for all DGs.
+		&lt;/p&gt;&lt;p&gt;For the email we suggest avoiding personal emails as people come and go.
+		 Instead use regularly checked functional mailboxes of the unit or project responsible for the 
+		 resource. This will be for your convenience, as you do not have to update your metadata if a 
+		 person leaves.&lt;/p&gt;&lt;p&gt;The restriction on the affiliation of European Commission, Joint 
+		 Research Centre instead of units or actions was a recommendation from a Senior Management 
+		 Consultation at JRC IES in May 2011.&lt;p&gt;</help>
+		 <example>&lt;/p&gt;&lt;p&gt;Organisation Name - European Commission, Joint Research Centre
+		 &lt;/p&gt;&lt;p&gt;E-Mail Address – rdsi-team@jrc.ec.europa.eu&lt;/p&gt;</example>
 		<condition>mandatory</condition>
-		<label>Contact</label>
-		<description>Party responsible for the metadata information</description>
 	</element>
 	<element name="gmd:contact" id="148.1" context="gmd:MD_MaintenanceInformation">
-		<label>Contact</label>
-		<description>Identification of, and means of communication with, person(s) and
-            organization(s) with responsability for maintaining the metadata</description>
+		<label>Responsible Party</label>
+		<description>&lt;p&gt;If users have any questions relating to the resource found they need 
+		information on who to contact and how they can be contacted.&lt;/p&gt;&lt;p&gt;Searching via this 
+		field allows users to immediately look for or filter data available from JRC, from EEA or from 
+		EUROSTAT. Thus, being restrictive on the names to be used allows us to be much more effective 
+		when performing a search.&lt;/p&gt;</description>
+		<help>&lt;p&gt;The Responsible Party consists of an Organisation Name and an Email Address.
+		&lt;/p&gt;&lt;p&gt;Organisation Name is free text.&lt;/p&gt;&lt;p&gt;Email Address must be of 
+		valid email format.&lt;/p&gt;&lt;p&gt;Fill in each of the organisations responsible for the 
+		resource. &lt;/p&gt;&lt;p&gt;The name of the organisation should be given in full, without 
+		abbreviations. These names should come from a common codelist to be agreed for all DGs.
+		&lt;/p&gt;&lt;p&gt;For the email we suggest avoiding personal emails as people come and go.
+		 Instead use regularly checked functional mailboxes of the unit or project responsible for the 
+		 resource. This will be for your convenience, as you do not have to update your metadata if a 
+		 person leaves.&lt;/p&gt;&lt;p&gt;The restriction on the affiliation of European Commission, Joint 
+		 Research Centre instead of units or actions was a recommendation from a Senior Management 
+		 Consultation at JRC IES in May 2011.&lt;p&gt;</help>
+		 <example>&lt;/p&gt;&lt;p&gt;Organisation Name - European Commission, Joint Research Centre
+		 &lt;/p&gt;&lt;p&gt;E-Mail Address – rdsi-team@jrc.ec.europa.eu&lt;/p&gt;</example>
+		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:contact" id="8.0">
 		<label>Metadata author</label>
@@ -805,31 +930,43 @@
 	<element name="gmd:date" id="570.0">
 		<label>Date</label>
 		<description>Reference date for the cited resource (YYYY-MM-DD)</description>
+		<help>We suggest the full date (YYYY-MM-DD) as anything else lacks accuracy.</help>
+		<example>2010-05-11</example>
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:date" id="570.0" context="gmd:MD_Revision">
 		<label>Date of last update</label>
 		<description>Date of last update</description>
+		<help>We suggest the full date (YYYY-MM-DD) as anything else lacks accuracy.</help>
+		<example>2010-05-11</example>
 	</element>
 	<element name="gmd:date" id="144.0" context="gmd:MD_MaintenanceInformation">
 		<label>Date of next update</label>
 		<description>Scheduled revision date for resource</description>
+		<help>We suggest the full date (YYYY-MM-DD) as anything else lacks accuracy.</help>
+		<example>2010-05-11</example>
 	</element>
 	<element name="gmd:date" id="362.0" context="gmd:CI_Citation">
 		<condition>mandatory</condition>
 		<label>Date</label>
 		<description>Reference date for the cited resource</description>
+		<help>We suggest the full date (YYYY-MM-DD) as anything else lacks accuracy.</help>
+		<example>2010-05-11</example>
 		<_condition>M</_condition>
 	</element>
 	<element name="gmd:date" id="394.0" context="gmd:CI_Date">
 		<condition>mandatory</condition>
 		<label>Date</label>
 		<description>Reference date for the cited resource</description>
+		<help>We suggest the full date (YYYY-MM-DD) as anything else lacks accuracy.</help>
+		<example>2010-05-11</example>
 		<_condition>M</_condition>
 	</element>
 	<element name="gmd:dateOfNextUpdate" id="144.0">
 		<label>Date of next update</label>
 		<description>Scheduled revision date for resource (YYYY-MM-DD)</description>
+		<help>We suggest the full date (YYYY-MM-DD) as anything else lacks accuracy.</help>
+		<example>2010-05-11</example>
 	</element>
 	<element name="gmd:dateStamp" id="9.0">
 		<label>Date stamp</label>
@@ -840,16 +977,22 @@
 		<label>Date / Time</label>
 		<description>Date and time or range of date and time on or over which the process step
             occurred (YYYY-MM-DDThh:mm:ss)</description>
+		<help>We suggest the full date (YYYY-MM-DD) as anything else lacks accuracy.</help>
+		<example>2010-05-11</example>
 	</element>
 	<element name="gmd:dateTime" id="89.0" context="LI_ProcessStep">
 		<description>Date and time or range of date and time on or over which the process step
             occurred (YYYY-MM-DDThh:mm:ss)</description>
+		<help>We suggest the full date (YYYY-MM-DD) as anything else lacks accuracy.</help>
+		<example>2010-05-11</example>
 		<label>Date / Time</label>
 	</element>
 	<element name="gmd:dateTime" id="106.0" context="gmd:DQ_Element">
 		<label>Date / Time</label>
 		<description>Date or range of dates on which a data quality measure was
             applied</description>
+		<help>We suggest the full date (YYYY-MM-DD) as anything else lacks accuracy.</help>
+		<example>2010-05-11</example>
 	</element>
 	<element name="gmd:dateType" id="395.0">
 		<label>Date type</label>
@@ -1425,9 +1568,8 @@
 	</element>
 	<element name="gmd:language" context="gmd:MD_Metadata" id="3.0">
 		<label>Resource Language</label>
-		<description>&lt;p&gt;This is important information for the user. For example, your resource 
-		might be in Spanish because you have listed the Spanish forest fire season data for 2010.&lt;/p&gt;
-		&lt;p&gt;Naturally, if you are describing a numeric grid, the language is not applicable.&lt;/p&gt;
+		<description>&lt;p&gt;Metadata should be of quality; it should be clear which language has been 
+		used for documenting the metadata.&lt;/p&gt;
 		</description>
 		<example>Eng</example>
 		<help>&lt;p&gt;Domain Code list provided by ISO 639-2 which describes each language in 
@@ -1488,10 +1630,32 @@
 		<_condition>Conditional / level not equal 'dataset' or 'series'?</_condition>
 	</element>
 	<element name="gmd:lineage" id="81.0">
-		<label>Lineage</label>
-		<description>Non-quantitative quality information about the lineage of the data specified by
-            the scope</description>
-		<_condition>Conditional / report not provided?</_condition>
+		<label>Quality and Validity of the Resource</label>
+		<description>This element contains information on how the data resource was created, the source data
+		used, the main steps and transformations that took place in constructing the actual product from 
+		the source data. This is very useful for a user in determining its fitness for purpose.</description>
+		<help>&lt;p&gt;Include, where applicable, statements on the following (in the given order):&lt;/p&gt;
+		&lt;ul&gt;&lt;li&gt;Source material and providers&lt;/li&gt;
+		&lt;li&gt;Process history, transformations undergone by the data from source to the actual product&lt;/li&gt;
+		&lt;li&gt;Method of updating, how to identify the current version and any retired versions&lt;/li&gt;
+		&lt;li&gt;Data validation and quality assurance: Known issues with the dataset should be mentioned.&lt;/li&gt;
+		&lt;/ul&gt;&lt;p&gt;The Lineage should be a clear and concise statement that avoids acronyms 
+		(if you use them, explain them).&lt;/p&gt;</help>
+		<example>&lt;p&gt;(NOTE Here the data sources are still missing) &lt;/p&gt;
+		&lt;p&gt;The European mosaic is a multi-purpose and multi-scale product. To achieve this, 
+		technical specifications were defined to allow implementation of different mosaic types, 
+		based on specific user requirements. All bands were re-projected from the national projection 
+		systems to a European representation, in full resolution. The image re-projection is based on 
+		three sets of parameters: Map projection, Spheroid and Datum (7term Bursa-Wolf or 3 term 
+		Molodensky transformation according to the datum definition available for each country). 
+		All scenes orthorectified into national projection system were re-projected into geographic 
+		coordinates according to the ETRS89 specification (ETRS89 stands for European Terrestrial 
+		Reference System 1989). The re-projected pixel size is 0.0002300 deg for the multispectral 
+		bands. Re-projection of raster data to geographic coordinates implicates non-square image 
+		pixel with variable pixel size, when projected into plain and expressed in meters. 
+		Full details on the IMAGE2000 Products and Method scan be found at: 
+		http://image2000.jrc.ec.europa.eu/reports/image2000_products_and_methods.pdf&lt;/p&gt;</example>
+		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:linkage" id="397.0">
 		<label>Linkage</label>
@@ -2097,9 +2261,23 @@
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:pointOfContact" id="29.0">
-		<label>Point of contact</label>
-		<description>Identification of, and means of communication with, person(s) and
-        organizations(s) associated with the resource(s)</description>
+		<label>Metadata Point of contact</label>
+		<description>The responsible party for the creation and maintenance of the metadata is not 
+		necessarily the same as the responsible party of the data. On the contrary, quite often the 
+		creation of metadata is outsourced. Therefore, if a user has questions or concerns about a 
+		metadata record, he/she needs to know who to contact.</description>
+		<help>&lt;p&gt;The Point of Contact consists of an Organisation Name and an Email Address.
+		&lt;/p&gt;&lt;p&gt;Organisation Name is free text.&lt;/p&gt;&lt;p&gt;Email Address must be of 
+		valid email format.&lt;/p&gt;&lt;p&gt;The name of the organisation should be given in full, 
+		without abbreviations. These names should come from a common codelist to be agreed for all 
+		DGs. &lt;/p&gt;&lt;p&gt;For the email we suggest avoiding personal emails as people come and go. 
+		Instead use regularly checked functional mailboxes of the unit or project responsible for the 
+		resource. This will be for your convenience, as you do not have to update your metadata if a 
+		person leaves.&lt;/p&gt;&lt;p&gt;Remember this refers to the metadata record and not the resource. 
+		The Point of Contact is responsible for questions regarding the metadata, not the resource.&lt;/p&gt;</help>
+		<example>&lt;p&gt;Organisation Name - European Commission, Joint Research Centre&lt;/p&gt;
+		&lt;p&gt;E-Mail Address – rdsi-team@jrc.ec.europa.eu&lt;/p&gt;</example>
+		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:polygon" id="342.0">
 		<label>Polygon</label>
@@ -2268,8 +2446,45 @@
 	</element>
 	<element name="gmd:resourceConstraints" id="35.0">
 		<label>Resource constraints</label>
-		<description>Provides information about constraints which apply to the
-            resource(s)</description>
+		<description>The constraints are important information as they help users understand if and under 
+		what conditions they are allowed to use the resource found.</description>
+		<help>&lt;p&gt;The purpose of this element is to describe any conditions applying to access or usage of the 
+		resource data. Users that read this metadata need to understand under what conditions they are 
+		allowed to access and use the resource.&lt;/p&gt;&lt;p&gt;The description should cover:
+		&lt;ul&gt;&lt;li&gt;access conditions&lt;/li&gt;&lt;li&gt;use conditions&lt;/li&gt;&lt;li&gt;
+		access to the data: steps to be followed to get the data.&lt;/li&gt;&lt;li&gt;how to cite the data
+		&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;Only general information should be provided here, 
+		for detailed information a link to a website or document containing the necessary information 
+		should be provided.&lt;/p&gt;&lt;p&gt;A limited number of conditions for access and use inside 
+		and outside the Commission should be established: Under what conditions can the data be made 
+		available to the European Commission for internal use and basic publishing (text, summary tables, 
+		view service, pdf etc.)? Under what conditions the data can be made available to the general 
+		public i.e. acknowledgement notices or fees that would need to be paid?&lt;/p&gt;&lt;p&gt;A first 
+		set of possible categories have been listed in Annex IV: Categories for data sharing. This list
+		 will have to be discussed and completed based on the feedback received.&lt;/p&gt;&lt;p&gt;If no
+		  conditions apply enter ‘no conditions apply’.&lt;/p&gt;&lt;p&gt; If conditions are unknown enter 
+		  ‘conditions unknown’.&lt;/p&gt;</help>
+		  <example>&lt;p&gt;From NUTS 2006:&lt;/p&gt;&lt;p&gt;Access to the detailed data (scale 100k, 1M) 
+		  is restricted to the personnel of the European Commission, the Executive Agencies and EC 
+		  contractors. EC contractors can access the data after signing an agreement form. The agreement 
+		  form can be requested by the responsible service from European Commission - Eurostat/GISCO 
+		  (ESTAT_GISCO@ec.europa.eu). Once the form has been signed, access will be provided by European 
+		  Commission - Eurostat/GISCO. Data can be published in the form of electronic images, statistical 
+		  tables and on paper. Subsets of this data can be made available to the general public for 
+		  non-commercial use, only if the data covered either has a spatial resolution of 1:1.000.000 or 
+		  smaller, or less than 20% of the data is shown. The lower scale levels (3M, 10M, 20M, 60M) are 
+		  publicly available and can be used for non-commercial purposes. The source and intellectual 
+		  property have always to be acknowledged for the original data and for derived data. To this end, 
+		  an acknowledgement as specified below must be visible on any printed or electronic publication 
+		  using the data.&lt;/p&gt;&lt;p&gt;Acknowledgement notice, depending on the language used in the 
+		  publication: English: Administrative boundaries: © EuroGeographics, © FAO (UN), 
+		  © TurkStat Source: European Commission – Eurostat/GISCO French: Limites administratives: 
+		  © EuroGeographics, © FAO (UN), © TurkStat Source: Commission Européenne – Eurostat/GISCO German: 
+		  Verwaltungsgrenzen: © EuroGeographics, © FAO (UN), © TurkStat Quelle: Europäische Kommission -
+		  Eurostat/GISCO For publications in languages other than English, French or German,
+		  the translation of the Acknowledgement notice in the language of the publication must be used.
+	      &lt;/p&gt;</example>
+		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:resourceFormat" id="32.0">
 		<label>Resource format</label>
@@ -2299,6 +2514,31 @@
 	<element name="gmd:role" id="379.0">
 		<label>Role</label>
 		<description>Function performed by the responsible party</description>
+		<condition>mandatory</condition>
+	</element>
+	<element name="gmd:role" id="571.0" context="gmd:CI_ResponsibleParty">
+		<label>Responsible Party Role</label>
+		<description>Responsible parties may have different roles. They might be the owner, the producer or 
+		the creator of the resource. Therefore, in particular if more than one Responsible Party is named, 
+		the Responsible Party Role allows users to direct questions to the correct person or functional
+		email box.</description>
+		<help>&lt;p&gt;Code list provided by ISO 19115 CI_RoleCode:&lt;/p&gt;&lt;ul&gt;
+		&lt;li&gt;resourceProvider&lt;/li&gt;
+		&lt;li&gt;custodian&lt;/li&gt;
+		&lt;li&gt;owner&lt;/li&gt;
+		&lt;li&gt;user&lt;/li&gt;
+		&lt;li&gt;distributor&lt;/li&gt;
+		&lt;li&gt;originator&lt;/li&gt;
+		&lt;li&gt;pointOfContact&lt;/li&gt;
+		&lt;li&gt;principalInvestigator&lt;/li&gt;
+		&lt;li&gt;processor&lt;/li&gt;
+		&lt;li&gt;publisher&lt;/li&gt;
+		&lt;li&gt;author&lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;See Appendix III for a brief description of each Responsible 
+		Party Role. &lt;/p&gt;&lt;p&gt;Select all roles that best represent the function performed by 
+		the responsible party.&lt;/p&gt;&lt;p&gt;We recommend that you provide at least the Point of 
+		Contact of the resource.&lt;/p&gt;</help>
+		<example>pointOfContact</example>
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:rule" id="317.0">
@@ -2404,8 +2644,21 @@
 	</element>
 	<element name="gmd:spatialResolution" id="38.0">
 		<label>Spatial resolution</label>
-		<description>Factor which provides a general understanding of the density of spatial data in
-            the dataset</description>
+		<description>Spatial resolution refers to the level of detail of the spatial data resource. Imagine 
+		that a user is interested in finding orthoimagery data with a resolution distance of 25 meters or 
+		more. To make this possible this element must be filled in and the information given must be 
+		harmonised (otherwise people will enter a unit of measure as many different things i.e. m, meter, 
+		metre, km, kilometre, kilometres, etc.).</description>
+		<help>&lt;p&gt;The Spatial Resolution consists of an Equivalent Scale or Distance. Equivalent Scale is an 
+		integer. Distance is a number with an accompanying unit of measure.Distance is used typically for 
+		gridded data and imagery-derived products and represents the resolution distances. Equivalent Scale 
+		is usually used for maps or map-derived products.&lt;/p&gt;&lt;p&gt;An equivalent scale is generally expressed as an 
+		integer value expressing the scale denominator. For example a map with a scale of 1:25.000 gets 
+		the value”25000”.&lt;/p&gt;&lt;p&gt;To harmonise the unit of measure and to avoid different spellings, please use 
+		&lt;b&gt;m&lt;/b&gt; for metre, &lt;b&gt;km&lt;/b&gt; for kilometre and &lt;b&gt;dd&lt;/b&gt; for 
+		decimal degrees.</help>
+		<example>&lt;p&gt;&lt;b&gt;Distance&lt;/b&gt;: 25 &lt;b&gt;m&lt;/b&gt;&lt;/p&gt;
+		&lt;p&gt;&lt;b&gt;Equivalent Scale&lt;/b&gt;:25000&lt;/p&gt;</example>
 	</element>
 	<element name="gmd:specificUsage" id="63.0">
 		<label>Specific usage</label>
@@ -2441,7 +2694,26 @@
 	</element>
 	<element name="gmd:temporalElement" id="337.0">
 		<label>Temporal element</label>
-		<description>Provides temporal component of the extent of the referring object</description>
+		<description>&lt;p&gt;This allows users to search for data by date. &lt;/p&gt;&lt;p&gt;Individually all temporal 
+		reference elements are conditional but one or more temporal reference must be provided. However, 
+		it is important that all metadata records provide this information as complete as possible to aid 
+		the performance of a search by date. At least the creation date or the temporal extent must be 
+		provided.&lt;/p&gt;&lt;p&gt;To avoid the confusion of different styles and interpretations of 
+		dates, these guidelines fix the date (and time) representation, following ISO 8601 Data elements 
+		and interchange formats - Information interchange – Representation.&lt;/p&gt;&lt;p&gt;Thus, we 
+		recommend to use the date format YYYY-MM-DD where YYYY is the year in the Gregorian calendar, 
+		MM is the month of the year between 01 (January) and 12 (December), and DD is the day of the month 
+		between 01 and 31. For the expressions with high precision the date format can extended with the 
+		time format hh:mm:ss where hh is the number of complete hours that have passed since midnight, 
+		mm is the number of complete minutes since the start of the hour, and ss is the number of complete
+		seconds since the start of the minute. The capital letter T is used to separate the date and 
+		time components, which then combines into YYYY-MM-DDT hh:mm:ss. &lt;/p&gt;&lt;p&gt;NOTE In case 
+		your Metadata editor tool has limitations to express the dates according to these guidelines, 
+		they might be temporarily overwritten with different rules. In this case we suggest: If the day 
+		and/or month is unknown the 01-01 of that year should be encoded. If no 
+		information on the temporal reference is available then insert the 9999-01-01 to indicate that it 
+		is unknown. However, please note that this results in false precisions which have to be removed 
+		as soon as the tools allow for this.&lt;/p&gt;</description>
 		<condition>conditional</condition>
 	</element>
 	<element name="gmd:textGroup" id="602.0">
@@ -2450,8 +2722,34 @@
 	</element>
 	<element name="gmd:thesaurusName" id="55.0">
 		<label>Thesaurus name</label>
-		<description>Name of the formally registered thesaurus or a similar authoritative source of
-            keywords</description>
+		<description>&lt;p&gt;If keyword Values originate from a controlled vocabulary (like GEMET) then details 
+		about that vocabulary are required.&lt;/p&gt;&lt;p&gt; Knowing the controlled vocabulary allows 
+		users to fully understand the context of the keyword, as the controlled vocabulary often also 
+		provides a definition of the term. If, like in case of GEMET, the controlled vocabulary is a 
+		multilingual thesaurus, then it is even possible to request a translation of the keyword. Also, as 
+		definitions might change, it is important to add which version of the thesaurus the keyword was 
+		taken from.&lt;/p&gt;&lt;p&gt;As at least one of the INSPIRE Spatial Data Themes must be selected as
+		a keyword and we strongly recommend using only the GEMET Concept list for other keywords, examples 
+		for these are provided below.&lt;/p&gt;&lt;p&gt;Date is in the recommended format YYYY-MM-DD. &lt;/p&gt;</description>
+		<help>>&lt;p&gt;None or one for each keyword but many keywords can belong to one Originating 
+		Controlled Vocabulary.&lt;/p&gt;&lt;p&gt;The Originating Controlled Vocabulary consists of a Title, 
+		Date Type and Date.&lt;/p&gt;&lt;p&gt;Title is free text.&lt;/p&gt;&lt;p&gt;Date Type is taken from 
+		a code list provided by ISO 19115 CI_DateTypeCode:&lt;/p&gt;&lt;ul&gt;
+		&lt;li&gt;creation&lt;/li&gt;
+		&lt;li&gt;publication&lt;/li&gt;
+		&lt;li&gt;revision&lt;/li&gt;
+		&lt;/ul&gt;&lt;p&gt;Date is a valid date.&lt;/p&gt;</help>
+		<example>&lt;p&gt;&lt;b&gt;INSPIRE Spatial Data Theme:&lt;/b&gt;
+		&lt;ul&gt;&lt;li&gt;Title - GEMET - INSPIRE themes, version 1.0&lt;/li&gt;
+		&lt;li&gt;Date Type - publication&lt;/li&gt;
+		&lt;li&gt;Date – 2011-09-08&lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;
+		&lt;p&gt;&lt;b&gt;GEMET Concepts:&lt;/b&gt;
+		&lt;ul&gt;&lt;li&gt;Title - GEMET - Concepts, version 3.0&lt;/li&gt;
+		&lt;li&gt;Date Type - publication&lt;/li&gt;
+		&lt;li&gt;Date – 2011-07-13&lt;/li&gt;
+		&lt;/ul&gt;&lt;/p&gt;</example>
+		<condition>conditional</condition>
 	</element>
 	<element name="gmd:citation" id="360.0" context="gmd:MD_DataIdentification">
 		<label>Resource Title</label>

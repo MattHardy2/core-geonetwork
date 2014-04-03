@@ -64,7 +64,7 @@
 						<gmd:role>
 							<gmd:CI_RoleCode
 								codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
-								codeListValue="pointOfContact" />
+								codeListValue="resourceProvider" />
 						</gmd:role>
 					</gmd:CI_ResponsibleParty>
 				</gmd:contact>
@@ -470,7 +470,7 @@
 						<gmd:role>
 							<gmd:CI_RoleCode
 								codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
-								codeListValue="resourceProvider" />
+								codeListValue="pointOfContact" />
 						</gmd:role>
 					</gmd:CI_ResponsibleParty>
 				</gmd:pointOfContact>

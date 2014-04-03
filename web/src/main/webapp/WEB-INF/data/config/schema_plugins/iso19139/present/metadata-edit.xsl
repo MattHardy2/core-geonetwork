@@ -2738,18 +2738,10 @@
     </xsl:apply-templates>
     
     
-	   <xsl:call-template name="complexElementGui">
-      	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:DQ_DataQuality']/label)"/>
-         <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:DQ_DataQuality']/label"/>
-          <xsl:with-param name="content">
-		    <xsl:apply-templates mode="elementEP" select="gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage|gmd:dataQualityInfo/gmd:DQ_DataQuality/geonet:child[string(@name)='lineage']">
-		      <xsl:with-param name="schema" select="$schema"/>
-		      <xsl:with-param name="edit"   select="$edit"/>
-		    </xsl:apply-templates>
- 		</xsl:with-param>
-       <xsl:with-param name="schema" select="$schema"/>
-       <xsl:with-param name="edit" select="$edit"/>
-     </xsl:call-template>
+   <xsl:apply-templates mode="elementEP" select="gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage|gmd:dataQualityInfo/gmd:DQ_DataQuality/geonet:child[string(@name)='lineage']">
+     <xsl:with-param name="schema" select="$schema"/>
+     <xsl:with-param name="edit"   select="$edit"/>
+   </xsl:apply-templates>
     
        <xsl:call-template name="complexElementGui">
       	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:spatialResolution']/label)"/>
