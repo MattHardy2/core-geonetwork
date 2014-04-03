@@ -95,7 +95,7 @@
         <plugin>
           <groupId>net.alchim31.maven</groupId>
           <artifactId>yuicompressor-maven-plugin</artifactId>
-          <version>0.9</version>
+          <version>1.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -936,12 +936,24 @@
 
   </repositories>
 
-  <pluginRepositories>
+<pluginRepositories>
     <pluginRepository>
-      <name>oss.sonatype.org - github-releases</name>
-      <id>oss.sonatype.org-github-releases</id>
-      <url>http://oss.sonatype.org/content/repositories/github-releases</url>
+      <id>central</id>
+      <name>Maven Plugin Repository</name>
+      <url>http://central.maven.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
     </pluginRepository>
+<!--    <pluginRepository>
+      <name>oss.sonatype.org - jetty-releases</name>
+      <id>oss.sonatype.org-jetty-releases</id>
+      <url>http://oss.sonatype.org/content/repositories/jetty-releases</url>
+    </pluginRepository>-->
   </pluginRepositories>
 
   <!-- =========================================================== -->
@@ -1009,7 +1021,7 @@
   </distributionManagement>
 
   <properties>
-    <jetty.version>7.3.1.v20110307</jetty.version>
+    <jetty.version>7.6.14.v20131031</jetty.version>
     <geotools.version>8.6</geotools.version>
     <lucene.version>4.1.0</lucene.version>
     <spring.version>3.1.1.RELEASE</spring.version>
