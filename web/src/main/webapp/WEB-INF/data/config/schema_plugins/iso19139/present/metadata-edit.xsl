@@ -2741,10 +2741,11 @@
        <xsl:with-param name="schema" select="$schema"/>
        <xsl:with-param name="edit" select="$edit"/>
      </xsl:call-template>
-           
-    <xsl:apply-templates mode="elementEP" select="gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier|geonet:child[string(@name)='referenceSystemInfo']|gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/geonet:child[string(@name)='referenceSystemIdentifier']">
+    
+    <xsl:apply-templates mode="elementEP" select="gmd:referenceSystemInfo|geonet:child[string(@name)='referenceSystemInfo']">
       <xsl:with-param name="schema" select="$schema"/>
       <xsl:with-param name="edit"   select="$edit"/>
+      <xsl:with-param name="flat"   select="$flat"/>
     </xsl:apply-templates>
     
     
