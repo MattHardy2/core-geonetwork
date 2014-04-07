@@ -18,8 +18,6 @@
 	
 	<field name="gmd:code">
 		<suggest name="gco:CharacterString"/>
-		<suggest name="gmx:FileName"/>
-		<suggest name="gmx:Anchor"/>
 	</field>
 
 	<field name="gmd:language">

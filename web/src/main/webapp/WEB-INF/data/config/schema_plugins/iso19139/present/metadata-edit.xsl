@@ -2576,12 +2576,6 @@
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
     
-		    <xsl:apply-templates mode="iso19139" select="gmd:language">
-		      <xsl:with-param name="schema" select="$schema"/>
-		      <xsl:with-param name="edit"   select="$edit"/>
-		    </xsl:apply-templates>
-		    
-    
 		    <xsl:apply-templates mode="iso19139" select="gmd:fileIdentifier">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
@@ -2593,6 +2587,11 @@
 		    </xsl:apply-templates>
 		    
 		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:characterSet|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[string(@name)='characterSet']">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		    
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:language|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[string(@name)='language']">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
@@ -2743,7 +2742,7 @@
        <xsl:with-param name="edit" select="$edit"/>
      </xsl:call-template>
            
-    <xsl:apply-templates mode="elementEP" select="gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier|geonet:child[string(@name)='referenceSystemInfo']">
+    <xsl:apply-templates mode="elementEP" select="gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/gmd:referenceSystemIdentifier|geonet:child[string(@name)='referenceSystemInfo']|gmd:referenceSystemInfo/gmd:MD_ReferenceSystem/geonet:child[string(@name)='referenceSystemIdentifier']">
       <xsl:with-param name="schema" select="$schema"/>
       <xsl:with-param name="edit"   select="$edit"/>
     </xsl:apply-templates>
@@ -2790,6 +2789,12 @@
       	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Metadata']/label)"/>
          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Metadata']/label"/>
          <xsl:with-param name="content">
+         
+		    <xsl:apply-templates mode="iso19139" select="gmd:language">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		    
 		   
 		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[string(@name)='pointOfContact']">
 		      <xsl:with-param name="schema" select="$schema"/>
