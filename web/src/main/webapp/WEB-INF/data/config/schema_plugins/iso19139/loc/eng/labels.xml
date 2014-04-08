@@ -178,6 +178,8 @@
 		<label>Conformance result</label>
 		<description>Information about the outcome of evaluating the obtained value (or set of
             values) against a specified acceptable conformance quality level</description>
+        <help>Elements that will help the user understand how the data corresponds to any given 
+        implementing rules or specifications.</help>
 	</element>
 	<element name="gmd:DQ_DataQuality" id="78.0">
 		<label>Quality and Validity of the Resource</label>
@@ -2296,8 +2298,25 @@
 		<condition>conditional</condition>
 	</element>
 	<element name="gmd:pass" id="132.0">
-		<label>Pass</label>
-		<description>Indication of the conformance result where 0 = fail and 1 = pass</description>
+		<label>Degree</label>
+		<description>The degree of conformity to the legislation or data specification indicated in 
+		Specification (above). You might follow a specification, but not be compliant.</description>
+		<help>&lt;p&gt;Boolean:&lt;/p&gt;&lt;ul&gt;
+		&lt;li&gt;true if conformant&lt;/li&gt;
+		&lt;li&gt;false if not conformant&lt;/li&gt;
+		&lt;li&gt;null if not evaluated&lt;/li&gt;
+		&lt;/ul&gt;&lt;p&gt;The data resource should be evaluated against the specification and the result 
+		recorded. There are three degrees of conformity with a specification: conformant, 
+		not conformant and not evaluated. To express these three degrees you can adopt the following rules: &lt;/p&gt;
+		&lt;ul&gt;
+		&lt;li&gt;When the conformity has been evaluated, it shall be reported as follows: if the evaluation 
+		has passed, the degree is conformant (True), otherwise it is not conformant (false).&lt;/li&gt;
+		&lt;li&gt;The absence of metadata related to the conformity to a particular specification does imply 
+		that the conformity has not been evaluated (null).&lt;/li&gt;
+		&lt;/ul&gt;&lt;p&gt;In other words: &lt;strong&gt;if you have not tested the compliance 
+		with a particular specification, please do not list the specification.&lt;/strong&gt;
+		&lt;/p&gt;&lt;p&gt;</help>
+		<example>True</example>
 		<condition>mandatory</condition>
 	</element>
 	<element name="gmd:peakResponse" id="263.0">
@@ -2727,8 +2746,142 @@
 	<element name="gmd:specification" id="130.0" context="gmd:DQ_ConformanceResult">
 		<condition>mandatory</condition>
 		<label>Specification</label>
-		<description>Citation of product specification or user requirement against which data is
-            being evaluated</description>
+		<description>&lt;p&gt;This element contains information on the known legislation (or specifications) against 
+		which the resource is evaluated including a date of reference to that legislation. &lt;/p&gt;&lt;p&gt;
+		This is important if you provide your data in compliance with a specific data model or in the context 
+		of a particular legislation. For example, if you provide your data according to the INSPIRE data 
+		specifications, which means they follow a particular well-known data model. &lt;/p&gt;&lt;p&gt;
+		The Specification consists of a Title, Address, Reference Date Type and Reference Date.&lt;/p&gt;
+		&lt;p&gt;Title is free text.&lt;/p&gt;&lt;p&gt;Address is a URL (optional or recommended).&lt;/p&gt;
+		&lt;p&gt;Reference Date Type is taken from a code list provided by ISO 19115 CI_DateTypeCode:&lt;/p&gt;
+		&lt;ul&gt;&lt;li&gt;creation&lt;/li&gt;
+		&lt;li&gt;publication&lt;/li&gt;
+		&lt;li&gt;revision&lt;/li&gt;
+		&lt;/ul&gt;&lt;p&gt;Reference Date is a valid date.&lt;/p&gt;&lt;p&gt;
+		&lt;strong&gt;Compliance with INSPIRE&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;All INSPIRE compliant metadata 
+		shall include information on the degree of conformity with the INSPIRE Regulation on Spatial Data Sets 
+		and Services (http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2010:323:0011:0102:EN:PDF).
+		However, if you have not tested the conformance with this specification, please do not list it (see 2.6.2 
+		degree, below).&lt;/p&gt;&lt;p&gt;If you are compliant with this regulation, it is recommended to also 
+		list the Guidance documents of the corresponding INSPIRE Data Specifications (e.g. Orthoimagery, 
+		Administrative Units, Hydrography). In this case, please use the full title of the guidelines document, 
+		as found on the INSPIRE website at http://inspire.jrc.ec.europa.eu/index.cfm/pageid/2, using the pattern: 
+		“INSPIRE Data Specification on &lt;Theme Name&gt; –Guidelines”. &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+		NOTE The INSPIRE Regulation on Spatial Data Sets and Services and the corresponding guidelines 
+		currently only apply to datasets that fall under the Annex I INSPIRE Spatial Data Themes1. For 
+		datasets that fall under Annex II and III the documents are still in the draft stage, therefore 
+		you cannot evaluate conformance of your data against these. Strictly speaking, even in this case 
+		you should list the regulation and state that you did not evaluate the conformance (yet). However, 
+		because of limitations in the ISO 19115 schema, the solution has been adopted is to not list the 
+		INSPIRE Regulation on Spatial Data Sets and Services if it has not been evaluated. &lt;/p&gt;
+		&lt;p&gt;&lt;strong&gt;What about amendments? &lt;/strong&gt;&lt;/p&gt;
+		&lt;p&gt;In case that the specification that you want to state compliance with has been amended, and 
+		you want to state compliance with this amendment instead, you have to list the amendment. &lt;/p&gt;
+		&lt;p&gt;&lt;strong&gt;What about other specifications?  &lt;/strong&gt;&lt;/p&gt;
+		&lt;p&gt;The specification element is not restricted to INSPIRE, there could be other standards 
+		relating particularly to your type of data resource. For example forest fire data may well be 
+		evaluated against the Commission Regulation (EC) No 804/94 as regards forest-fire information 
+		systems. However, compliance with the Metadata Regulation itself should not be reported here, 
+		as these elements are only for compliance of the data&lt;/p&gt;
+		&lt;p&gt;&lt;strong&gt;How to fill the title?  &lt;/strong&gt;&lt;/p&gt;
+		&lt;p&gt;For legislation that can be found in Eur-lex (http://eur-lex.europa.eu), the title should be 
+		the same as found there. Otherwise the title should be the same as given in the document.&lt;/p&gt;
+		&lt;p&gt;&lt;strong&gt;How to fill the date? &lt;/strong&gt;&lt;/p&gt;
+		&lt;p&gt;Reference Date should be a full date (YYYY-MM-DD).
+		&lt;/p&gt;</description>
+		<example>&lt;p&gt;For the INSPIRE Regulation on Spatial Data Sets and Services:&lt;/p&gt;
+		&lt;ul&gt;&lt;li&gt;Title - Commission Regulation (EU) No 1089/2010 of  23 November 2010 implementing 
+		Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of 
+		spatial data sets and services &lt;/li&gt;
+		&lt;li&gt;Address – http://eur-lex.europa.eu/LexUriServ/ The INSPIRE Spatial Data Themes can
+		 be found at http://inspire.jrc.ec.europa.eu/index.cfm/pageid/2/list/7LexUriServ.do?uri=OJ:L:2010:323:0011:0102:EN:PDF&lt;/li&gt;
+		&lt;li&gt; Reference Date Type - creation&lt;/li&gt;
+		&lt;li&gt;Reference Date - 2000-09-10 &lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;p&gt;For the INSPIRE Data Specification on Administrative Units (Annex I):&lt;/p&gt;
+		&lt;ul&gt;&lt;li&gt;Title - INSPIRE Data Specification on Administrative Units - Guidelines v3.0.1&lt;/li&gt;
+		&lt;li&gt;Address – http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_AU_v3.0.1.pdf&lt;/li&gt;
+		&lt;li&gt;Reference Date Type - publication&lt;/li&gt;
+		&lt;li&gt;Reference Date - 2010-05-03 &lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;p&gt;EU Water Framework Directive:&lt;/p&gt;
+		&lt;ul&gt;&lt;li&gt;Title - Commission Regulation (EC) No 804/94 of 11 April 1994 laying down 
+		certain detailed rules for the application of Council Regulation (EEC) No 2158/92 as regards 
+		forest-fire information systems &lt;/li&gt;
+		&lt;li&gt;Address – http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:31994R0804:EN:NOT &lt;/li&gt;
+		&lt;li&gt;Reference Date Type - publication&lt;/li&gt;
+		&lt;li&gt;Reference Date - 1994-04-11 &lt;/li&gt;
+		&lt;/ul&gt;</example>
+	</element>
+	<element name="gmd:CI_Citation" id="359.0" context="gmd:specification">
+		<condition>mandatory</condition>
+		<label>Citation</label>
+		<description>&lt;p&gt;This element contains information on the known legislation (or specifications) against 
+		which the resource is evaluated including a date of reference to that legislation. &lt;/p&gt;&lt;p&gt;
+		This is important if you provide your data in compliance with a specific data model or in the context 
+		of a particular legislation. For example, if you provide your data according to the INSPIRE data 
+		specifications, which means they follow a particular well-known data model. &lt;/p&gt;&lt;p&gt;
+		The Specification consists of a Title, Address, Reference Date Type and Reference Date.&lt;/p&gt;
+		&lt;p&gt;Title is free text.&lt;/p&gt;&lt;p&gt;Address is a URL (optional or recommended).&lt;/p&gt;
+		&lt;p&gt;Reference Date Type is taken from a code list provided by ISO 19115 CI_DateTypeCode:&lt;/p&gt;
+		&lt;ul&gt;&lt;li&gt;creation&lt;/li&gt;
+		&lt;li&gt;publication&lt;/li&gt;
+		&lt;li&gt;revision&lt;/li&gt;
+		&lt;/ul&gt;&lt;p&gt;Reference Date is a valid date.&lt;/p&gt;&lt;p&gt;
+		&lt;strong&gt;Compliance with INSPIRE&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;All INSPIRE compliant metadata 
+		shall include information on the degree of conformity with the INSPIRE Regulation on Spatial Data Sets 
+		and Services (http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2010:323:0011:0102:EN:PDF).
+		However, if you have not tested the conformance with this specification, please do not list it (see 2.6.2 
+		degree, below).&lt;/p&gt;&lt;p&gt;If you are compliant with this regulation, it is recommended to also 
+		list the Guidance documents of the corresponding INSPIRE Data Specifications (e.g. Orthoimagery, 
+		Administrative Units, Hydrography). In this case, please use the full title of the guidelines document, 
+		as found on the INSPIRE website at http://inspire.jrc.ec.europa.eu/index.cfm/pageid/2, using the pattern: 
+		“INSPIRE Data Specification on &lt;Theme Name&gt; –Guidelines”. &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+		NOTE The INSPIRE Regulation on Spatial Data Sets and Services and the corresponding guidelines 
+		currently only apply to datasets that fall under the Annex I INSPIRE Spatial Data Themes1. For 
+		datasets that fall under Annex II and III the documents are still in the draft stage, therefore 
+		you cannot evaluate conformance of your data against these. Strictly speaking, even in this case 
+		you should list the regulation and state that you did not evaluate the conformance (yet). However, 
+		because of limitations in the ISO 19115 schema, the solution has been adopted is to not list the 
+		INSPIRE Regulation on Spatial Data Sets and Services if it has not been evaluated. &lt;/p&gt;
+		&lt;p&gt;&lt;strong&gt;What about amendments? &lt;/strong&gt;&lt;/p&gt;
+		&lt;p&gt;In case that the specification that you want to state compliance with has been amended, and 
+		you want to state compliance with this amendment instead, you have to list the amendment. &lt;/p&gt;
+		&lt;p&gt;&lt;strong&gt;What about other specifications?  &lt;/strong&gt;&lt;/p&gt;
+		&lt;p&gt;The specification element is not restricted to INSPIRE, there could be other standards 
+		relating particularly to your type of data resource. For example forest fire data may well be 
+		evaluated against the Commission Regulation (EC) No 804/94 as regards forest-fire information 
+		systems. However, compliance with the Metadata Regulation itself should not be reported here, 
+		as these elements are only for compliance of the data&lt;/p&gt;
+		&lt;p&gt;&lt;strong&gt;How to fill the title?  &lt;/strong&gt;&lt;/p&gt;
+		&lt;p&gt;For legislation that can be found in Eur-lex (http://eur-lex.europa.eu), the title should be 
+		the same as found there. Otherwise the title should be the same as given in the document.&lt;/p&gt;
+		&lt;p&gt;&lt;strong&gt;How to fill the date? &lt;/strong&gt;&lt;/p&gt;
+		&lt;p&gt;Reference Date should be a full date (YYYY-MM-DD).
+		&lt;/p&gt;</description>
+		<example>&lt;p&gt;For the INSPIRE Regulation on Spatial Data Sets and Services:&lt;/p&gt;
+		&lt;ul&gt;&lt;li&gt;Title - Commission Regulation (EU) No 1089/2010 of  23 November 2010 implementing 
+		Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of 
+		spatial data sets and services &lt;/li&gt;
+		&lt;li&gt;Address – http://eur-lex.europa.eu/LexUriServ/ The INSPIRE Spatial Data Themes can
+		 be found at http://inspire.jrc.ec.europa.eu/index.cfm/pageid/2/list/7LexUriServ.do?uri=OJ:L:2010:323:0011:0102:EN:PDF&lt;/li&gt;
+		&lt;li&gt; Reference Date Type - creation&lt;/li&gt;
+		&lt;li&gt;Reference Date - 2000-09-10 &lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;p&gt;For the INSPIRE Data Specification on Administrative Units (Annex I):&lt;/p&gt;
+		&lt;ul&gt;&lt;li&gt;Title - INSPIRE Data Specification on Administrative Units - Guidelines v3.0.1&lt;/li&gt;
+		&lt;li&gt;Address – http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_AU_v3.0.1.pdf&lt;/li&gt;
+		&lt;li&gt;Reference Date Type - publication&lt;/li&gt;
+		&lt;li&gt;Reference Date - 2010-05-03 &lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;p&gt;EU Water Framework Directive:&lt;/p&gt;
+		&lt;ul&gt;&lt;li&gt;Title - Commission Regulation (EC) No 804/94 of 11 April 1994 laying down 
+		certain detailed rules for the application of Council Regulation (EEC) No 2158/92 as regards 
+		forest-fire information systems &lt;/li&gt;
+		&lt;li&gt;Address – http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:31994R0804:EN:NOT &lt;/li&gt;
+		&lt;li&gt;Reference Date Type - publication&lt;/li&gt;
+		&lt;li&gt;Reference Date - 1994-04-11 &lt;/li&gt;
+		&lt;/ul&gt;</example>
 	</element>
 	<element name="gmd:specification" id="288.0" context="gmd:MD_Format">
 		<label>Specification</label>

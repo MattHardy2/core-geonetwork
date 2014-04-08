@@ -2447,10 +2447,11 @@
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
 		    
-		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date">
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date|gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/geonet:child[string(@name)='date']">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
+		    
           </xsl:with-param>
           <xsl:with-param name="schema" select="$schema"/>
           <xsl:with-param name="group" select="/root/gui/strings/metadata"/>
@@ -2595,6 +2596,12 @@
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
+		    
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date|gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/geonet:child[string(@name)='date']">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+		    
           </xsl:with-param>
           <xsl:with-param name="schema" select="$schema"/>
           <xsl:with-param name="group" select="/root/gui/strings/metadata"/>
@@ -2731,11 +2738,6 @@
 	      <xsl:with-param name="schema" select="$schema"/>
 	      <xsl:with-param name="edit"   select="$edit"/>
 	    </xsl:apply-templates>
-	
-	    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date">
-	      <xsl:with-param name="schema" select="$schema"/>
-	      <xsl:with-param name="edit"   select="$edit"/>
-	    </xsl:apply-templates>
 
  		</xsl:with-param>
        <xsl:with-param name="schema" select="$schema"/>
@@ -2759,6 +2761,20 @@
          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:spatialResolution']/label"/>
          <xsl:with-param name="content">
 		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:spatialResolution|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[@name='spatialResolution']">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit"   select="$edit"/>
+		    </xsl:apply-templates>
+ 		</xsl:with-param>
+       <xsl:with-param name="schema" select="$schema"/>
+       <xsl:with-param name="edit" select="$edit"/>
+     </xsl:call-template>
+     
+     
+	<xsl:call-template name="complexElementGui">
+      	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:DQ_ConformanceResult']/label)"/>
+         <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:DQ_ConformanceResult']/label"/>
+         <xsl:with-param name="content">
+		    <xsl:apply-templates mode="elementEP" select="gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report|gmd:dataQualityInfo/gmd:DQ_DataQuality/geonet:child[string(@name)='report']">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
