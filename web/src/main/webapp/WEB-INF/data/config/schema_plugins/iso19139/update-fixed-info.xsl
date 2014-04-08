@@ -25,9 +25,6 @@
 				</gco:CharacterString>
 			</gmd:fileIdentifier>
 
-			<xsl:apply-templates select="gmd:language" />
-			<xsl:apply-templates select="gmd:characterSet" />
-
 			<xsl:choose>
 				<xsl:when test="/root/env/parentUuid!=''">
 					<gmd:parentIdentifier>
@@ -69,8 +66,7 @@
 					</gmd:CI_ResponsibleParty>
 				</gmd:contact>
 			</xsl:if>
-			<xsl:apply-templates
-				select="node()[not(self::gmd:language) and not(self::gmd:characterSet)]" />
+			<xsl:apply-templates select="node()" />
 		</xsl:copy>
 
 	</xsl:template>
@@ -475,8 +471,7 @@
 					</gmd:CI_ResponsibleParty>
 				</gmd:pointOfContact>
 			</xsl:if>
-			<xsl:apply-templates
-				select="node()[not(self::gmd:language) and not(self::gmd:characterSet)]" />
+			<xsl:apply-templates select="node()" />
 		</xsl:copy>
 	</xsl:template>
 

@@ -2807,6 +2807,10 @@
          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Metadata']/label"/>
          <xsl:with-param name="content">
          
+         <xsl:for-each select="//gmd:language/gmd:LanguageCode" >
+         	<xsl:value-of select="@codeListValue"/>
+         </xsl:for-each>
+         
 		    <xsl:apply-templates mode="iso19139" select="gmd:language">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
@@ -2858,7 +2862,21 @@
     <xsl:param name="value"/>
       <xsl:param name="ref"/>
     
-    <xsl:variable name="lang"  select="/root/gui/language"/>
+    <xsl:variable name="lang">
+    	<xsl:value-of select="/root/gui/language"/>
+    </xsl:variable>
+    
+    
+    <xsl:variable name="selectedLang">
+    	<xsl:choose>
+    		<xsl:when test="@codeListValue">
+   		 		<xsl:value-of select="@codeListValue"/>
+    		</xsl:when>
+    		<xsl:otherwise>
+    			<xsl:value-of select="/root/gui/language"/>
+    		</xsl:otherwise>
+    	</xsl:choose>
+    </xsl:variable>
     
     <xsl:choose>
       <xsl:when test="$edit=true()">
@@ -2868,7 +2886,7 @@
           <xsl:for-each select="/root/gui/isoLang/record">
             <xsl:sort select="label/child::*[name() = $lang]"/>
             <option value="{code}">
-              <xsl:if test="code = $lang">
+              <xsl:if test="code = $selectedLang">
                 <xsl:attribute name="selected"/>
               </xsl:if>
               <xsl:value-of select="label/child::*[name() = $lang]"/>
@@ -4366,7 +4384,7 @@
         <xsl:variable name="ptFreeTextTree" select="exslt:node-set($tmpFreeText)" />
         
         <xsl:variable name="mainLang"
-          select="string(/root/*/gmd:language/gco:CharacterString|/root/*/gmd:language/gmd:LanguageCode/@codeListValue)" />
+          select="string(/root/*/gmd:language[1]/gco:CharacterString|/root/*/gmd:language[1]/gmd:LanguageCode/@codeListValue)" />
         <xsl:variable name="mainLangId">
           <xsl:call-template name="getLangIdFromMetadata">
             <xsl:with-param name="lang" select="$mainLang" />
