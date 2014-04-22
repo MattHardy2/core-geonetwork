@@ -80,6 +80,72 @@
       
   </xsl:template>
   
+  <!-- JRC show only email -->
+  <xsl:template mode="iso19139" match="gmd:CI_Contact">
+    <xsl:param name="schema"/>
+    <xsl:param name="edit"/>
+    
+    <xsl:choose>
+	    <xsl:when test="$currTab='ultralight' or $currTab='default' ">
+	    	<xsl:for-each select="gmd:address/gmd:CI_Address/gmd:electronicMailAddress">
+	    	
+	    		<xsl:choose>
+			      <xsl:when test="$edit=true()">
+			        <xsl:apply-templates mode="elementEP" select=".">
+			          <xsl:with-param name="schema" select="$schema"/>
+			          <xsl:with-param name="edit"   select="true()"/>
+			          <xsl:with-param name="flat"   select="/root/gui/config/metadata-tab/*[name(.)=$currTab]/@flat"/>
+			        </xsl:apply-templates>
+			      </xsl:when>
+			      
+			      <xsl:otherwise>
+			        <xsl:variable name="empty">
+			          <xsl:apply-templates mode="iso19139IsEmpty" select="."/>
+			        </xsl:variable>
+			        
+			        <xsl:if test="$empty!=''">
+			          <xsl:apply-templates mode="element" select=".">
+			            <xsl:with-param name="schema" select="$schema"/>
+			            <xsl:with-param name="edit"   select="false()"/>
+			            <xsl:with-param name="flat"   select="/root/gui/config/metadata-tab/*[name(.)=$currTab]/@flat"/>
+			          </xsl:apply-templates>
+			        </xsl:if>
+			        
+			      </xsl:otherwise>
+			    </xsl:choose>
+	    	</xsl:for-each>
+	    
+	    </xsl:when>
+	    <xsl:otherwise>
+		    <!-- do not show empty elements in view mode -->
+		    <xsl:choose>
+		      <xsl:when test="$edit=true()">
+		        <xsl:apply-templates mode="element" select=".">
+		          <xsl:with-param name="schema" select="$schema"/>
+		          <xsl:with-param name="edit"   select="true()"/>
+		          <xsl:with-param name="flat"   select="/root/gui/config/metadata-tab/*[name(.)=$currTab]/@flat"/>
+		        </xsl:apply-templates>
+		      </xsl:when>
+		      
+		      <xsl:otherwise>
+		        <xsl:variable name="empty">
+		          <xsl:apply-templates mode="iso19139IsEmpty" select="."/>
+		        </xsl:variable>
+		        
+		        <xsl:if test="$empty!=''">
+		          <xsl:apply-templates mode="element" select=".">
+		            <xsl:with-param name="schema" select="$schema"/>
+		            <xsl:with-param name="edit"   select="false()"/>
+		            <xsl:with-param name="flat"   select="/root/gui/config/metadata-tab/*[name(.)=$currTab]/@flat"/>
+		          </xsl:apply-templates>
+		        </xsl:if>
+		        
+		      </xsl:otherwise>
+		    </xsl:choose>
+	    </xsl:otherwise>
+    </xsl:choose>
+      
+  </xsl:template>
   
   <!--=====================================================================-->
   <!-- these elements should not be displayed 
