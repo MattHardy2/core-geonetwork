@@ -80,6 +80,15 @@
       
   </xsl:template>
   
+  <!-- JRC hide subelements of Time Period -->
+  <xsl:template mode="iso19139" match="gml:TimePeriodTypeGROUP_ELEMENT0 
+  										|gml:TimePeriodTypeGROUP_ELEMENT4">
+    <xsl:param name="schema"/>
+    <xsl:param name="edit"/>
+    
+  </xsl:template>
+  
+  
   <!-- JRC show only email -->
   <xsl:template mode="iso19139" match="gmd:CI_Contact">
     <xsl:param name="schema"/>
