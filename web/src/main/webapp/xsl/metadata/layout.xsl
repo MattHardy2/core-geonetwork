@@ -67,6 +67,25 @@
   <!-- main schema mode selector -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
+  <!-- JRC hide Legal Constraints except on advanced -->
+  <xsl:template mode="elementEP" match="gmd:MD_LegalConstraints">
+    <xsl:param name="schema"/>
+    <xsl:param name="edit"/>
+    <xsl:choose>
+	    <xsl:when test="$currTab!='ultralight' and $currTab!='default' ">
+		    <xsl:variable name="schemaTemplate" select="concat('metadata-',$schema)"/>
+		    <saxon:call-template name="{$schemaTemplate}">
+		      <xsl:with-param name="schema" select="$schema"/>
+		      <xsl:with-param name="edit" select="$edit"/>
+		      <xsl:with-param name="embedded" select="false()"/>
+		    </saxon:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+      </xsl:otherwise>
+    </xsl:choose>  
+  </xsl:template>
+  
+  <!-- General elementEP -->
   <xsl:template mode="elementEP" match="*|@*">
     <xsl:param name="schema">
       <xsl:apply-templates mode="schema" select="."/>
