@@ -88,6 +88,12 @@
     
   </xsl:template>
   
+  <xsl:template mode="iso19139" match="gml:relatedTime|gmd:thesaurusName">
+    <xsl:param name="schema"/>
+    <xsl:param name="edit"/>
+    
+  </xsl:template>
+  
   <!-- JRC show only email -->
   <xsl:template mode="iso19139" match="gmd:CI_Contact">
     <xsl:param name="schema"/>
@@ -175,7 +181,7 @@
 
   <xsl:template mode="iso19139" match="gmd:identificationInfo|gmd:distributionInfo|
               gmd:portrayalCatalogueInfo|gmd:portrayalCatalogueCitation|
-              gmd:descriptiveKeywords|gmd:thesaurusName|
+              gmd:descriptiveKeywords|
               *[name(..)='gmd:resourceConstraints']|gmd:spatialRepresentationInfo|gmd:pointOfContact|
               gmd:dataQualityInfo|gmd:contentInfo|gmd:distributionFormat|
               gmd:referenceSystemInfo|gmd:spatialResolution|gmd:offLine|gmd:projection|gmd:ellipsoid|gmd:extent[name(..)!='gmd:EX_TemporalExtent']|gmd:attributes|gmd:verticalCRS|
