@@ -81,13 +81,34 @@
   </xsl:template>
   
   <!-- JRC hide subelements of Time Period -->
-  <xsl:template mode="iso19139" match="gml:TimePeriodTypeGROUP_ELEMENT0 
-  										|gml:TimePeriodTypeGROUP_ELEMENT4">
+  <xsl:template mode="iso19139" match="*[starts-with(name(), 'gml:Time')
+  										 and contains(name(), 'GROUP_ELEMENT')]">
     <xsl:param name="schema"/>
     <xsl:param name="edit"/>
     
   </xsl:template>
   
+  
+  <!-- JRC hide Legal Constraints except on advanced -->
+  <xsl:template mode="elementEP" match="gmd:MD_LegalConstraints">
+    <xsl:param name="schema"/>
+    <xsl:param name="edit"/>
+    <xsl:choose>
+	    <xsl:when test="$currTab!='ultralight' and $currTab!='default' ">
+	        <LegalConstraints preformatted="true">
+	          <xsl:apply-templates mode="iso19139" select=".">
+	            <xsl:with-param name="schema" select="$schema"/>
+	            <xsl:with-param name="edit" select="$edit"/>
+	          </xsl:apply-templates>
+	        </LegalConstraints>
+	        <LegalConstraints preformatted="false">
+	          <xsl:copy-of select="."/>
+	        </LegalConstraints>
+      </xsl:when>
+      <xsl:otherwise>
+      </xsl:otherwise>
+    </xsl:choose>  
+  </xsl:template>
   
   <!-- JRC show only email -->
   <xsl:template mode="iso19139" match="gmd:CI_Contact">
