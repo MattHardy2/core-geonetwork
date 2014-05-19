@@ -92,6 +92,13 @@
     <xsl:param name="schema"/>
     <xsl:param name="edit"/>
     
+  </xsl:template> 
+  
+  <!-- JRC hide subelements of DomainConsistency except Result -->
+  <xsl:template match="gmd:DQ_DomainConsistency">
+    <xsl:param name="schema"/>
+    <xsl:param name="edit"/>
+    sdf
   </xsl:template>
   
   <!-- JRC show only email -->
@@ -2854,7 +2861,34 @@
       	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:DQ_ConformanceResult']/label)"/>
          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:DQ_ConformanceResult']/label"/>
          <xsl:with-param name="content">
-		    <xsl:apply-templates mode="elementEP" select="gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report|gmd:dataQualityInfo/gmd:DQ_DataQuality/geonet:child[string(@name)='report']">
+         	<xsl:for-each select="gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency">
+		    	<xsl:variable name="name" select="name(..)"/>
+		        <xsl:variable name="id" select="generate-id(gmd:result)"/>
+		    	<xsl:call-template name="complexElementGui">
+			      	<xsl:with-param name="id" select="$id"/>
+			         <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:DQ_DomainConsistency']/label"/>
+			         <xsl:with-param name="content">
+			         
+					    <xsl:apply-templates mode="elementEP" 
+					    		select="gmd:result|geonet:child[@name='result']">
+					      <xsl:with-param name="schema" select="$schema"/>
+					      <xsl:with-param name="edit"   select="$edit"/>
+					    </xsl:apply-templates>
+			         
+			 		</xsl:with-param>		
+			        <xsl:with-param name="schema" select="$schema"/>
+			        <xsl:with-param name="edit" select="$edit"/>	
+			
+			        <xsl:with-param name="removeLink">
+			          <xsl:value-of select="concat('doRemoveElementAction(',$apos,'metadata.elem.delete.new',$apos,',',../geonet:element/@ref,',',../geonet:element/@parent,',',$apos,$id,$apos,',',../geonet:element/@min,');')"/>
+				      <xsl:if test="not(../geonet:element/@del='true')">
+				        <xsl:text>!OPTIONAL</xsl:text>
+				      </xsl:if>
+      			    </xsl:with-param>
+			     </xsl:call-template>
+		     </xsl:for-each>
+		     
+		    <xsl:apply-templates mode="elementEP" select="gmd:dataQualityInfo/gmd:DQ_DataQuality/geonet:child[@name='report']">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
