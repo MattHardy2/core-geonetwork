@@ -2601,7 +2601,7 @@
       	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:resourceConstraints']/label)"/>
          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:resourceConstraints']/label"/>
          <xsl:with-param name="content">
-		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[@name='resourceConstraints']">
+		    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
 		    </xsl:apply-templates>
@@ -2609,6 +2609,7 @@
          <xsl:with-param name="schema" select="$schema"/>
          <xsl:with-param name="edit" select="$edit"/>
     </xsl:call-template>
+    
     <xsl:call-template name="complexElementGui">
       	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Metadata']/label)"/>
          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Metadata']/label"/>
