@@ -2887,10 +2887,6 @@
          <xsl:with-param name="title" select="/root/gui/schemas/iso19139/labels/element[@name='gmd:MD_Metadata']/label"/>
          <xsl:with-param name="content">
          
-         <xsl:for-each select="//gmd:language/gmd:LanguageCode" >
-         	<xsl:value-of select="@codeListValue"/>
-         </xsl:for-each>
-         
 		    <xsl:apply-templates mode="iso19139" select="gmd:language">
 		      <xsl:with-param name="schema" select="$schema"/>
 		      <xsl:with-param name="edit"   select="$edit"/>
