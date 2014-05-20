@@ -94,11 +94,21 @@
     
   </xsl:template> 
   
-  <!-- JRC hide subelements of DomainConsistency except Result -->
-  <xsl:template match="gmd:DQ_DomainConsistency">
+  <!-- JRC hide temporal extent except on advanced tab -->
+  <xsl:template mode="iso19139" match="gmd:temporalElement">
     <xsl:param name="schema"/>
     <xsl:param name="edit"/>
-    sdf
+    <xsl:choose>
+	    <xsl:when test="$currTab='advanced' ">
+	    	<xsl:for-each select="*">	    		
+		        <xsl:apply-templates mode="elementEP" select=".">
+		          <xsl:with-param name="schema" select="$schema"/>
+		          <xsl:with-param name="edit"   select="true()"/>
+		        </xsl:apply-templates>
+			</xsl:for-each>
+	    </xsl:when>
+	    <xsl:otherwise/>
+    </xsl:choose>
   </xsl:template>
   
   <!-- JRC show only email -->
@@ -2578,11 +2588,11 @@
 	         <xsl:with-param name="schema" select="$schema"/>
 	         <xsl:with-param name="edit" select="$edit"/>
 	    </xsl:call-template>
-		    
-    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[@name='extent' and @prefix='gmd']">
-      <xsl:with-param name="schema" select="$schema"/>
-      <xsl:with-param name="edit"   select="$edit"/>
-    </xsl:apply-templates>
+			    
+	    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent|gmd:identificationInfo/gmd:MD_DataIdentification/geonet:child[@name='extent' and @prefix='gmd']">
+	      <xsl:with-param name="schema" select="$schema"/>
+	      <xsl:with-param name="edit"   select="$edit"/>
+	    </xsl:apply-templates>
     
 		<xsl:call-template name="complexElementGui">
 	      	<xsl:with-param name="id" select="generate-id(/root/gui/schemas/iso19139/labels/element[@name='gmd:DQ_DataQuality']/label)"/>
