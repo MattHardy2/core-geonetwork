@@ -88,7 +88,13 @@
     
   </xsl:template>
   
-  <xsl:template mode="iso19139" match="gml:relatedTime|gmd:thesaurusName">
+  <xsl:template mode="iso19139" match="gml:relatedTime|gmd:thesaurusName|geonet:child[string(@name)='thesaurusName']">
+    <xsl:param name="schema"/>
+    <xsl:param name="edit"/>
+    
+  </xsl:template>
+  
+  <xsl:template mode="elementEP" match="geonet:child[string(@name)='thesaurusName']">
     <xsl:param name="schema"/>
     <xsl:param name="edit"/>
     
@@ -1369,12 +1375,13 @@
         <xsl:with-param name="edit"   select="$edit"/>
       </xsl:apply-templates>
     </col>
-    <col>                    
+   <!-- JRC hiding thesaurus
+     <col>                    
       <xsl:apply-templates mode="elementEP" select="gmd:thesaurusName|geonet:child[string(@name)='thesaurusName']">
         <xsl:with-param name="schema" select="$schema"/>
         <xsl:with-param name="edit"   select="$edit"/>
       </xsl:apply-templates>
-    </col>
+    </col> -->
   </xsl:template>
   
   <!-- 
@@ -1501,7 +1508,7 @@
               use a snippet editor. 
               TODO : check that the thesaurus is available in the catalogue to not 
               to try to initialize a widget with a non existing thesaurus. -->
-              <xsl:when test="$thesaurusCode != ''">
+              <xsl:when test="$thesaurusCode != '' and $currTab='advanced'">
                 <xsl:apply-templates select="gmd:MD_Keywords" mode="snippet-editor">
                   <xsl:with-param name="edit" select="$edit"/>
                   <xsl:with-param name="schema" select="$schema"/>

@@ -471,9 +471,43 @@
 					</gmd:CI_ResponsibleParty>
 				</gmd:pointOfContact>
 			</xsl:if>
-			<xsl:apply-templates select="node()" />
+			<xsl:apply-templates select="@*|node()" />
 		</xsl:copy>
 	</xsl:template>
+	
+	<!-- JRC add GEMET INSPIRE description to keywords -->
+	<xsl:template match="gmd:MD_Keywords">
+		<xsl:copy>
+			<xsl:apply-templates select="node()" />
+			<xsl:if test="not(gmd:thesaurusName)">
+					<gmd:thesaurusName>
+						<gmd:CI_Citation>
+							<gmd:title>
+								<gco:CharacterString>GEMET - INSPIRE themes, version 1.0</gco:CharacterString>
+							</gmd:title>
+							<gmd:date>
+								<gmd:CI_Date>
+									<gmd:date>
+										<gco:Date>2008-06-01</gco:Date>
+									</gmd:date>
+									<gmd:dateType>
+										<gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication"/>
+									</gmd:dateType>
+								</gmd:CI_Date>
+							</gmd:date>
+							<gmd:identifier>
+								<gmd:MD_Identifier>
+									<gmd:code>
+										<gmx:Anchor xlink:href="http://localhost:8080/geonetwork/srv/en/thesaurus.download?ref=external.theme.inspire-theme">geonetwork.thesaurus.external.theme.inspire-theme</gmx:Anchor>
+									</gmd:code>
+								</gmd:MD_Identifier>
+							</gmd:identifier>
+						</gmd:CI_Citation>
+					</gmd:thesaurusName>
+			</xsl:if>
+		</xsl:copy>
+	</xsl:template>
+
 
 	<!-- ================================================================= -->
 	<!-- copy everything else as is -->

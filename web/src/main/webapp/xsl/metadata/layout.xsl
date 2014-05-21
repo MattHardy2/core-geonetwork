@@ -1126,9 +1126,9 @@
       <xsl:variable name="relatedElementName" select="$helper/@rel"/>
       <xsl:variable name="relatedAttributeName" select="$helper/@relAtt"/>
       
-      
       <xsl:variable name="relatedElementAction">
-        <xsl:if test="$relatedElementName!=''">
+        <xsl:if test="$relatedElementName!='' 
+        		and count(../following-sibling::node()[name()=$relatedElementName]/gco:CharacterString) > 0">
           <xsl:variable name="relatedElement"
             select="../following-sibling::node()[name()=$relatedElementName]/gco:CharacterString"/>
           <xsl:variable name="relatedElementRef"
@@ -1146,6 +1146,29 @@
             <xsl:otherwise>
               <xsl:value-of
                 select="concat('if (Ext.getDom(&quot;_', $relatedElementRef, '&quot;)) Ext.getDom(&quot;_', $relatedElementRef, '&quot;).value=this.options[this.selectedIndex].title;')"
+              />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:if>
+        <xsl:if test="$relatedElementName!='' 
+        		and count(../following-sibling::node()[name()=$relatedElementName]/gco:CharacterString) = 0">
+          <xsl:variable name="relatedElement"
+            select="../following-sibling::node()[name()=$relatedElementName]"/>
+          <xsl:variable name="relatedElementRef"
+            select="concat(number(../following-sibling::node()[name()=$relatedElementName]/geonet:element/@ref)
+             + 1, '_codeListValue')"/>
+          <xsl:variable name="relatedElementIsEmpty" select="normalize-space($relatedElement)=''"/>
+          
+          <xsl:choose>
+            <!-- Layout with radio button -->
+            <xsl:when test="contains($mode, 'radio')">
+              <xsl:value-of
+                select="concat('if (Ext.getDom(&quot;_', $relatedElementRef, '&quot;)) Ext.getDom(&quot;_', $relatedElementRef, '&quot;).value=this.title;')"
+              />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of
+                select="concat('if (Ext.getDom(&quot;_', $relatedElementRef, '&quot;)) Ext.query(&quot;option[value=&quot; &#43; this.options[this.selectedIndex].title &#43; &quot;] &quot;, Ext.getDom(&quot;_', $relatedElementRef, '&quot;))[0].selected = true;')"
               />
             </xsl:otherwise>
           </xsl:choose>
