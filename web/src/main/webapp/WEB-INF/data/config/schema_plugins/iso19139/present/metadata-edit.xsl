@@ -88,7 +88,7 @@
     
   </xsl:template>
   
-  <xsl:template mode="iso19139" match="gml:relatedTime|gmd:thesaurusName|geonet:child[string(@name)='thesaurusName']">
+  <xsl:template mode="iso19139" match="gmd:thesaurusName|geonet:child[string(@name)='thesaurusName']">
     <xsl:param name="schema"/>
     <xsl:param name="edit"/>
     
@@ -2802,6 +2802,12 @@
          <xsl:with-param name="edit" select="$edit"/>
        </xsl:call-template>
     
+   
+	    <xsl:apply-templates mode="elementEP" select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier|gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/geonet:child[string(@name)='identifier']">
+	      <xsl:with-param name="schema" select="$schema"/>
+	      <xsl:with-param name="edit"   select="$edit"/>
+	    </xsl:apply-templates>  
+		    
     
 		    
        <xsl:call-template name="complexElementGui">
