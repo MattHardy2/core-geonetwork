@@ -173,7 +173,7 @@ GeoNetwork.util.HelpTools = {
     	var container = Ext.get("msg-div");
     	
     	if(container == null) {
-        	container = Ext.DomHelper.insertFirst(document.body, {id: "msg-div", "class": "msg"}, true);
+        	container = Ext.DomHelper.insertFirst(document.body, {id: "msg-div", "class": "msg editor-help"}, true);
     	}
     	
     	

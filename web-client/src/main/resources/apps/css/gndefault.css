@@ -40,6 +40,11 @@ pre.code {
   width : 350px;
   z-index : 20000;
 }
+
+#msg-div.editor-help.msg {
+	width: 75%;
+	left: 10%;
+}
 .x-grid3-row-body p {
   margin : 5px 5px 10px 5px !important;
 }
