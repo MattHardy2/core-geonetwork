@@ -57,6 +57,15 @@
 	          </xsl:with-param>
 	        </xsl:call-template>
 	   </xsl:if>
+          <xsl:call-template name="mainTab">
+                    <xsl:with-param name="title">Inspire</xsl:with-param>
+                    <xsl:with-param name="default">inspire</xsl:with-param>
+                    <xsl:with-param name="menu">
+                       <item label="xmlTab">Inspire</item>
+                    </xsl:with-param>
+         </xsl:call-template>
+
+
     </div>
   </xsl:template>
 
