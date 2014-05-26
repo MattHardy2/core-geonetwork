@@ -768,6 +768,18 @@
 		 <helper rel="gmd:codeSpace">
             <option value="EPSG 4326" title="EPSG" >EPSG 4326/ WGS 84</option>
             <option value="EPSG 900913" title="EPSG" >EPSG 900913</option>
+            <option value="EPSG 25828" title="EPSG" >EPSG 25828</option>
+            <option value="EPSG 25829" title="EPSG" >EPSG 25829</option>
+            <option value="EPSG 25830" title="EPSG" >EPSG 25830</option>
+            <option value="EPSG 25831" title="EPSG" >EPSG 25831</option>
+            <option value="EPSG 25832" title="EPSG" >EPSG 25832</option>
+            <option value="EPSG 25833" title="EPSG" >EPSG 25833</option>
+            <option value="EPSG 25834" title="EPSG" >EPSG 25834</option>
+            <option value="EPSG 25835" title="EPSG" >EPSG 25835</option>
+            <option value="EPSG 25836" title="EPSG" >EPSG 25836</option>
+            <option value="EPSG 25837" title="EPSG" >EPSG 25837</option>
+            <option value="EPSG 3034" title="EPSG" >EPSG 3034</option>
+            <option value="EPSG 3035" title="EPSG" >EPSG 3035</option>
         </helper>
 	</element>
 	<element name="gmd:code" id="207.0" context="gmd:MD_Identifier">
