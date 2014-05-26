@@ -1601,6 +1601,77 @@
 		the INSPIRE Website (http://inspire.jrc.ec.europa.eu/index.cfm) and the INSPIRE Registry 
 		(http://inspire-registry.jrc.ec.europa.eu/registers/FCD/items)</inspireInfo>
 		<condition>mandatory</condition>
+		
+		<helper rel="gmd:type" >
+			<option value="Addresses"
+				title="theme">Addresses</option>
+			<option value="Hydrography"
+				title="theme">Hydrography</option>
+			<option value="Administrative units"
+				title="theme">Administrative units</option>
+			<option value="Land cover"
+				title="theme">Land cover</option>
+			<option value="Agricultural and aquaculture facilities"
+				title="theme">Agricultural and aquaculture facilities</option>
+			<option value="Land use"
+				title="theme">Land use</option>
+			<option value="Area management/restriction/regulation zones and reporting units"
+				title="theme">Area management/restriction/regulation zones and reporting units</option>
+			<option value="Meteorological geographical features"
+				title="theme">Meteorological geographical features</option>
+			<option value="Atmospheric conditions"
+				title="theme">Atmospheric conditions</option>
+			<option value="Mineral resources"
+				title="theme">Mineral resources</option>
+			<option value="Bio-geographical regions"
+				title="theme">Bio-geographical regions</option>
+			<option value="Natural risk zones"
+				title="theme">Natural risk zones</option>
+			<option value="Buildings"
+				title="theme">Buildings</option>
+			<option value="Oceanographic geographical features"
+				title="theme">Oceanographic geographical features</option>
+			<option value="Cadastral parcels"
+				title="theme">Cadastral parcels</option>
+			<option value="Orthoimagery"
+				title="theme">Orthoimagery</option>
+			<option value="Coordinate reference systems"
+				title="theme">Coordinate reference systems</option>
+			<option value="Population distribution — demography"
+				title="theme">Population distribution — demography</option>
+			<option value="Elevation"
+				title="theme">Elevation</option>
+			<option value="Production and industrial facilities"
+				title="theme">Production and industrial facilities</option>
+			<option value="Energy resources"
+				title="theme">Energy resources</option>
+			<option value="Protected sites"
+				title="theme">Protected sites</option>
+			<option value="Environmental monitoring facilities"
+				title="theme">Environmental monitoring facilities</option>
+			<option value="Sea regions"
+				title="theme">Sea regions</option>
+			<option value="Geographical grid systems"
+				title="theme">Geographical grid systems</option>
+			<option value="Soil"
+				title="theme">Soil</option>
+			<option value="Geographical names"
+				title="theme">Geographical names</option>
+			<option value="Species distribution"
+				title="theme">Species distribution</option>
+			<option value="Geology"
+				title="theme">Geology</option>
+			<option value="Statistical units"
+				title="theme">Statistical units</option>
+			<option value="Habitats and biotopes"
+				title="theme">Habitats and biotopes</option>
+			<option value="Transport networks"
+				title="theme">Transport networks</option>
+			<option value="Human health and safety"
+				title="theme">Human health and safety</option>
+			<option value="Utility and governmental services"
+				title="theme">Utility and governmental services</option>
+		</helper>
 	</element>
 	<element name="gmd:language" context="gmd:MD_Metadata" id="3.0">
 		<label>Resource Language</label>
