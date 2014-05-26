@@ -1508,8 +1508,8 @@
               use a snippet editor. 
               TODO : check that the thesaurus is available in the catalogue to not 
               to try to initialize a widget with a non existing thesaurus. -->
-              <xsl:when test="$thesaurusCode != '' and $currTab='advanced'">
-                <xsl:apply-templates select="gmd:MD_Keywords" mode="classic-editor">
+              <xsl:when test="$thesaurusCode != ''">
+                <xsl:apply-templates select="gmd:MD_Keywords" mode="snippet-editor">
                   <xsl:with-param name="edit" select="$edit"/>
                   <xsl:with-param name="schema" select="$schema"/>
                 </xsl:apply-templates>
