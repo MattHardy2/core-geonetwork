@@ -2169,7 +2169,6 @@
 
             <xsl:apply-templates mode="elementEP" select="*/gmd:individualName|*/geonet:child[string(@name)='individualName']
               |*/gmd:organisationName|*/geonet:child[string(@name)='organisationName']
-              |*/gmd:positionName|*/geonet:child[string(@name)='positionName']
               |*/gmd:contactInfo|*/geonet:child[string(@name)='contactInfo']
               |*/gmd:role|*/geonet:child[string(@name)='role']">
               <xsl:with-param name="schema" select="$schema"/>
@@ -3114,7 +3113,6 @@
                   
                   <xsl:apply-templates mode="elementEP" select="gmd:individualName|geonet:child[string(@name)='individualName']
                     |gmd:organisationName|geonet:child[string(@name)='organisationName']
-                    |gmd:positionName|geonet:child[string(@name)='positionName']
                     |gmd:role|geonet:child[string(@name)='role']
                     ">
                     <xsl:with-param name="schema" select="$schema"/>
