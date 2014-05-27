@@ -96,7 +96,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="DQ_ConformanceResult" type="gmd:DQ_ConformanceResult_Type" substitutionGroup="gmd:AbstractDQ_Result"/>
+	<!-- <xs:element name="DQ_ConformanceResult" type="gmd:DQ_ConformanceResult_Type" substitutionGroup="gmd:AbstractDQ_Result"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_ConformanceResult_PropertyType">
 		<xs:sequence minOccurs="0">
@@ -300,7 +300,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="DQ_TopologicalConsistency" type="gmd:DQ_TopologicalConsistency_Type" substitutionGroup="gmd:AbstractDQ_LogicalConsistency"/>
+	<!-- <xs:element name="DQ_TopologicalConsistency" type="gmd:DQ_TopologicalConsistency_Type" substitutionGroup="gmd:AbstractDQ_LogicalConsistency"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_TopologicalConsistency_PropertyType">
 		<xs:sequence minOccurs="0">
@@ -316,7 +316,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="DQ_FormatConsistency" type="gmd:DQ_FormatConsistency_Type" substitutionGroup="gmd:AbstractDQ_LogicalConsistency"/>
+	<!-- <xs:element name="DQ_FormatConsistency" type="gmd:DQ_FormatConsistency_Type" substitutionGroup="gmd:AbstractDQ_LogicalConsistency"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_FormatConsistency_PropertyType">
 		<xs:sequence minOccurs="0">
@@ -348,7 +348,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="DQ_ConceptualConsistency" type="gmd:DQ_ConceptualConsistency_Type" substitutionGroup="gmd:AbstractDQ_LogicalConsistency"/>
+	<!-- <xs:element name="DQ_ConceptualConsistency" type="gmd:DQ_ConceptualConsistency_Type" substitutionGroup="gmd:AbstractDQ_LogicalConsistency"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_ConceptualConsistency_PropertyType">
 		<xs:sequence minOccurs="0">
@@ -396,7 +396,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="AbstractDQ_TemporalAccuracy" type="gmd:AbstractDQ_TemporalAccuracy_Type" abstract="true" substitutionGroup="gmd:AbstractDQ_Element"/>
+	<!-- <xs:element name="AbstractDQ_TemporalAccuracy" type="gmd:AbstractDQ_TemporalAccuracy_Type" abstract="true" substitutionGroup="gmd:AbstractDQ_Element"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_TemporalAccuracy_PropertyType">
 		<xs:sequence minOccurs="0">
@@ -412,7 +412,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="AbstractDQ_ThematicAccuracy" type="gmd:AbstractDQ_ThematicAccuracy_Type" abstract="true" substitutionGroup="gmd:AbstractDQ_Element"/>
+	<!-- <xs:element name="AbstractDQ_ThematicAccuracy" type="gmd:AbstractDQ_ThematicAccuracy_Type" abstract="true" substitutionGroup="gmd:AbstractDQ_Element"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_ThematicAccuracy_PropertyType">
 		<xs:sequence minOccurs="0">
@@ -428,7 +428,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="AbstractDQ_PositionalAccuracy" type="gmd:AbstractDQ_PositionalAccuracy_Type" abstract="true" substitutionGroup="gmd:AbstractDQ_Element"/>
+	<!-- <xs:element name="AbstractDQ_PositionalAccuracy" type="gmd:AbstractDQ_PositionalAccuracy_Type" abstract="true" substitutionGroup="gmd:AbstractDQ_Element"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_PositionalAccuracy_PropertyType">
 		<xs:sequence minOccurs="0">
@@ -460,7 +460,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="AbstractDQ_Completeness" type="gmd:AbstractDQ_Completeness_Type" abstract="true" substitutionGroup="gmd:AbstractDQ_Element"/>
+	<!-- <xs:element name="AbstractDQ_Completeness" type="gmd:AbstractDQ_Completeness_Type" abstract="true" substitutionGroup="gmd:AbstractDQ_Element"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_Completeness_PropertyType">
 		<xs:sequence minOccurs="0">

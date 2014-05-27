@@ -96,7 +96,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="DQ_ConformanceResult" type="gmd:DQ_ConformanceResult_Type" substitutionGroup="gmd:AbstractDQ_Result"/>
+	<!-- <xs:element name="DQ_ConformanceResult" type="gmd:DQ_ConformanceResult_Type" substitutionGroup="gmd:AbstractDQ_Result"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_ConformanceResult_PropertyType">
 		<xs:sequence minOccurs="0">
@@ -300,7 +300,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="DQ_TopologicalConsistency" type="gmd:DQ_TopologicalConsistency_Type" substitutionGroup="gmd:AbstractDQ_LogicalConsistency"/>
+	<!-- <xs:element name="DQ_TopologicalConsistency" type="gmd:DQ_TopologicalConsistency_Type" substitutionGroup="gmd:AbstractDQ_LogicalConsistency"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_TopologicalConsistency_PropertyType">
 		<xs:sequence minOccurs="0">
@@ -348,7 +348,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="DQ_ConceptualConsistency" type="gmd:DQ_ConceptualConsistency_Type" substitutionGroup="gmd:AbstractDQ_LogicalConsistency"/>
+	<!-- <xs:element name="DQ_ConceptualConsistency" type="gmd:DQ_ConceptualConsistency_Type" substitutionGroup="gmd:AbstractDQ_LogicalConsistency"/> -->
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_ConceptualConsistency_PropertyType">
 		<xs:sequence minOccurs="0">
@@ -444,7 +444,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="AbstractDQ_LogicalConsistency" type="gmd:AbstractDQ_LogicalConsistency_Type" abstract="true" substitutionGroup="gmd:AbstractDQ_Element"/>
+ <xs:element name="AbstractDQ_LogicalConsistency" type="gmd:AbstractDQ_LogicalConsistency_Type" abstract="true" substitutionGroup="gmd:AbstractDQ_Element"/>
 	<!-- ........................................................................ -->
 	<xs:complexType name="DQ_LogicalConsistency_PropertyType">
 		<xs:sequence minOccurs="0">
