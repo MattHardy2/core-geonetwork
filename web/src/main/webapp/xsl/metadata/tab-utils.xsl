@@ -61,7 +61,7 @@
                     <xsl:with-param name="title">Inspire</xsl:with-param>
                     <xsl:with-param name="default">inspire</xsl:with-param>
                     <xsl:with-param name="menu">
-                       <item label="xmlTab">Inspire</item>
+                       <item label="xmlTab">inspire</item>
                     </xsl:with-param>
          </xsl:call-template>
 
