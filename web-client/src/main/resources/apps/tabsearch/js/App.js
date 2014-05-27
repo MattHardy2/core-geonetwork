@@ -717,6 +717,8 @@ GeoNetwork.app = function () {
         if (!this.editorWindow) {
             this.editorPanel = new GeoNetwork.editor.EditorPanel({
                 defaultViewMode : GeoNetwork.Settings.editor.defaultViewMode,
+                defaultEditMode: GeoNetwork.Settings.editor.defaultViewMode,
+                editMode: GeoNetwork.Settings.editor.defaultViewMode,
                 catalogue : catalogue,
                 xlinkOptions : {
                     CONTACT : true
