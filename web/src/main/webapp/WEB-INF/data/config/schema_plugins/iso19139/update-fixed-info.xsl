@@ -476,7 +476,7 @@
 	</xsl:template>
 	
 	<!-- JRC add GEMET INSPIRE description to keywords -->
-	<xsl:template match="gmd:MD_Keywords">
+	<!--<xsl:template match="gmd:MD_Keywords">
 		<xsl:copy>
 			<xsl:apply-templates select="node()" />
 			<xsl:if test="not(gmd:thesaurusName)">
@@ -506,7 +506,7 @@
 					</gmd:thesaurusName>
 			</xsl:if>
 		</xsl:copy>
-	</xsl:template>
+	</xsl:template> -->
 
 
 	<!-- ================================================================= -->
