@@ -1158,18 +1158,7 @@ GeoNetwork.Catalogue = Ext.extend(Ext.util.Observable, {
     	var loginAttempts = 0;
     	var loginWindow;
         if (this.casEnabled) {
-        	loginWindow = window.open(this.URL+'/srv/'+this.LANG+'/login.form?casLogin', '_casLogin', 'menubar=no,location=no,toolbar=no', true);
-        	intervalID = setInterval(function (){
-        		loginAttempts += 1;
-        		if(loginAttempts > (5*60*2)) {
-        			clearInterval (intervalID);
-        			app.identifiedUser = undefined;
-	                app.onAfterBadLogin();
-        		} else if(loginWindow.closed) {
-        			clearInterval (intervalID);
-        			app.isLoggedIn();
-        		}
-        	}, 500);
+        	loginWindow = window.open(this.URL+'/login');
         } else {
 			OpenLayers.Request.POST({
 			    url: this.services.login,
