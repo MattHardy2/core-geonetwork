@@ -37,11 +37,8 @@ geonetwork.https.url=https://ec.europa.eu:8443/geonetwork
 				<ref bean="requestSingleLogoutFilter" />
 				<ref bean="logoutFilter" />
 				<ref bean="singleLogoutFilter" />
+                <ref bean="basicAuthenticationFilter" />
 				<ref bean="casFilter" />
-<!--  			
-				Authentication is also handled in casFilter	
-				<ref bean="basicAuthenticationFilter" />
- -->
  				<ref bean="requestCacheFilter" />
 				<ref bean="anonymousFilter" />
 				<ref bean="sessionMgmtFilter" />
@@ -80,7 +77,7 @@ geonetwork.https.url=https://ec.europa.eu:8443/geonetwork
         <!-- CAS: http://stackoverflow.com/questions/11163095/how-to-make-cas-return-to-right-spring-page -->
         <property name="authenticationSuccessHandler">
        		<bean class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
-       			<property name="defaultTargetUrl" value="/srv/eng/search"/>
+       			<property name="defaultTargetUrl" value="/"/>
        			<property name="alwaysUseDefaultTargetUrl" value="true"/>
        		</bean>
    		</property>
